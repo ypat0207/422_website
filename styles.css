@@ -681,4 +681,12 @@ footer ul li a {
   .dot.active {
     background-color: #555;
   }
+  .carousel-item img {
+    width: 350px;
+  }
+  .carousel {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+  }
 }
