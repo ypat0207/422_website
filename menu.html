@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu_style.css">
+    <title>Menu</title>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        firebase.initializeApp(firebaseConfig);
+        
+        // Get a reference to the Firestore database service
+        const db = firebase.firestore();
+
+        // Function to add item to cart
+        function addToCart(itemName) {
+            // Add item to Firestore
+            db.collection("cart").add({
+                itemName: itemName,
+                addedAt: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            .then((docRef) => {
+                console.log("Item added to cart with ID: ", docRef.id);
+            })
+            .catch((error) => {
+                console.error("Error adding item to cart: ", error);
+            });
+        }
+    </script>
+</head>
+<br>
+    <header>
+        <a href="index.html"><img class="logoimg" src="images/logo.jpeg" alt=""></a>
+          <nav>
+              <div class="menu-toggle">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+              </div>
+              <div>
+              <ul class="menu-items">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="menu.html">Menu</a></li>
+                  <li><a href="#">Specials</a></li>
+                  <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
+                  <li><a class="buttons" href="dashboard.html">Dashboard</a></li>
+              </ul>
+              </div>
+          </nav>
+          <div class = "darkmodeDiv">
+            <div class="dark-mode-switch">
+              <label>Dark Mode</label>
+                <input type="checkbox" id="darkModeToggle">
+                <label for="darkModeToggle" class="toggle"></label>
+            </div>
+            <br>
+            <div class="user-actions">
+                <button>Login</button>
+                <button>Sign Up</button>
+                <div class="shopping-cart">
+                    <a href="cart.html"><img src="images/cart.png" alt="Shopping Cart"></a>
+                </div>
+          </div>
+        </div>
+      </header>
+      <div class ="menuDiv">
+        <label class ="MenuText">Menu</label>
+      </div>
+    
+
+    <main class="menu-container">
+        <!-- Item 1 -->
+        <div class="menu-item">
+            <img src="images/food3.jpeg" alt="Item 1">
+            <h3>Item 1 Name</h3>
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-favorite">Add to Favorite</button>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-item">
+            <img src="images/food3.jpeg" alt="Item 2">
+            <h3>Item 2 Name</h3>
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-favorite">Add to Favorite</button>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-item">
+            <img src="images/food3.jpeg" alt="Item 3">
+            <h3>Item 3 Name</h3>
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-favorite">Add to Favorite</button>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="menu-item">
+            <img src="images/food3.jpeg" alt="Item 4">
+            <h3>Item 4 Name</h3>
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-favorite">Add to Favorite</button>
+        </div>
+
+        <!-- Item 1 -->
+        <div class="menu-item">
+            <img src="images/food3.jpeg" alt="Item 5">
+            <h3>Item 1 Name</h3>
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-favorite">Add to Favorite</button>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-item">
+            <img src="images/food3.jpeg" alt="Item 6">
+            <h3>Item 2 Name</h3>
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-favorite">Add to Favorite</button>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-item">
+            <img src="images/food3.jpeg" alt="Item 7">
+            <h3>Item 3 Name</h3>
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-favorite">Add to Favorite</button>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="menu-item">
+            <img src="images/food3.jpeg" alt="Item 8">
+            <h3>Item 4 Name</h3>
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-favorite">Add to Favorite</button>
+        </div>
+    </main>
+      
+    <footer class = "footer">
+        <ul>
+            <li class="contact-us"><a class="label-tag" href="#">Contact Us</a></li>
+            <li class="contact-us"><a href="#">Nutritional & Allergens</a></li>
+            <li class="contact-us"><a href="#">Careers</a></li>
+            <li class="contact-us"><a href="#">FAQs</a></li>
+            <li class="contact-us"><a href="#">Gift Cards & Offers</a></li>
+            <li class="contact-us"><a href="#">Legal Notice</a></li>
+            <li class="contact-us"><a href="#">Privacy Policy</a></li>
+            <li class="contact-us"><a href="#">Do Not Sell or Share My Personal Information</a></li>
+            <li class="contact-us"><a href="#">Accessibility Statement</a></li>
+        </ul>
+    </footer>
+    <button onclick="addToCart('Item 1 Name')">Add to Cart</button>
+</body>
+</html>

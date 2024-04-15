@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reservation_style.css">
+    <title>Reservation Page</title>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img class="logoimg" src="images/noimage.png" alt=""></a>
+          <nav>
+              <div class="menu-toggle">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+              </div>
+              <ul class="menu-items">
+                  <li><a class="buttons" href="index.html">Home</a></li>
+                  <li><a class="buttons" href="menu.html">Menu</a></li>
+                  <li><a class="buttons" href="#">Specials</a></li>
+                  <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
+                  <li><a class="buttons" href="dashboard.html">Dashboard</a></li>
+              </ul>
+          </nav>
+          <div class = "darkmodeDiv">
+            <div class="dark-mode-switch">
+              <label>Dark Mode</label>
+                <input type="checkbox" id="darkModeToggle">
+                <label for="darkModeToggle" class="toggle"></label>
+            </div>
+            <br>
+            <div class="user-actions">
+                <button>Login</button>
+                <button>Sign Up</button>
+                <div class="shopping-cart">
+                    <a href="cart.html"><img src="images/cart.png" alt="Shopping Cart"></a>
+                </div>
+          </div>
+        </div>
+      </header>
+
+    <div class="reservation-container">
+        <h2>Make a Reservation</h2>
+        <form>
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Select Time:</label>
+            <select id="time" name="time" required>
+                <!-- Morning Times -->
+                <optgroup label = "Morning">
+                    <option value="09:00">09:00 AM - 10:00 AM</option>
+                    <option value="10:00">10:00 AM - 11:00 AM</option>
+                    <option value="11:00">11:00 AM - 12:00 PM</option>
+                </optgroup>
+
+                <!-- Afternoon Times -->
+                <optgroup label = "Afternoon">
+                    <option value="13:00">01:00 PM - 02:00 PM</option>
+                    <option value="14:00">02:00 PM - 03:00 PM</option>
+                    <option value="15:00">03:00 PM - 04:00 PM</option>
+                </optgroup>
+
+                <!-- Dinner Times -->
+                <optgroup label = "Dinner">
+                    <option value="18:00">06:00 PM - 07:00 PM</option>
+                    <option value="19:00">07:00 PM - 08:00 PM</option>
+                    <option value="20:00">08:00 PM - 09:00 PM</option>
+                    <option value="21:00">09:00 PM - 10:00 PM</option>
+                    <option value="22:00">10:00 PM - 11:00 PM</option>
+                </optgroup>
+
+            </select>
+
+            <button type="submit">Confirm Reservation</button>
+        </form>
+    </div>
+      
+    <footer class = "footer">
+        <ul>
+            <li class="contact-us"><a class="label-tag" href="#">Contact Us</a></li>
+            <li class="contact-us"><a href="#">Nutritional & Allergens</a></li>
+            <li class="contact-us"><a href="#">Careers</a></li>
+            <li class="contact-us"><a href="#">FAQs</a></li>
+            <li class="contact-us"><a href="#">Gift Cards & Offers</a></li>
+            <li class="contact-us"><a href="#">Legal Notice</a></li>
+            <li class="contact-us"><a href="#">Privacy Policy</a></li>
+            <li class="contact-us"><a href="#">Do Not Sell or Share My Personal Information</a></li>
+            <li class="contact-us"><a href="#">Accessibility Statement</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

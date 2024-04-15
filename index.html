@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Website</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo-container">
+        <a href="index.html"
+          ><img class="logoimg" src="images/logo.jpeg" alt=""
+        /></a>
+      </div>
+      <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <a href="cart.html" class="shopping-cart-icon">
+          <img src="images/cart.png" alt="Shopping Cart" />
+        </a>
+        <ul id="menu" class="hidden menu">
+          <li><a class="buttons" href="index.html">Home</a></li>
+          <li><a class="buttons" href="menu.html">Menu</a></li>
+          <li><a class="buttons" href="#">Specials</a></li>
+          <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
+          <li><a class="buttons" href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </nav>
+      <div class="darkmodeDiv">
+        <div class="dark-mode-switch">
+          <label>Dark Mode</label>
+          <input type="checkbox" id="darkModeToggle" />
+          <label for="darkModeToggle" class="toggle"></label>
+        </div>
+        <br />
+        <div class="user-actions">
+          <button>Login</button>
+          <button>Sign Up</button>
+          <div class="shopping-cart">
+            <a href="cart.html"
+              ><img src="images/cart.png" alt="Shopping Cart"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item">
+          <img src="images/food3.jpeg" alt="Carousel Image 1" />
+        </div>
+        <div class="carousel-item">
+          <img src="images/piechart.png" alt="Carousel Image 2" />
+        </div>
+        <div class="carousel-item">
+          <img src="images/noimage.png" alt="Carousel Image 3" />
+        </div>
+      </div>
+      <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
+      <a class="carousel-control next" onclick="nextSlide()">&#10095;</a>
+    </div>
+    <div class="carousel-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <div class="actions">
+      <a class="order-now" href="menu.html">Order Now</a>
+      <a class="reserve" href="reservation.html">Reserve Now</a>
+    </div>
+    <footer class="footerClass">
+      <div class="option1">
+        <label>Contact Us</label>
+      </div>
+      <div class="option2">
+        <label>Nutritional & Allergens</label>
+      </div>
+      <div class="option1">
+        <label>Careers</label>
+      </div>
+      <div class="option2">
+        <label>FAQs</label>
+      </div>
+      <div class="option1">
+        <label>Gift Cards & Offers</label>
+      </div>
+      <div class="option2">
+        <label>Legal & Privacy Notices</label>
+      </div>
+      <div class="option1">
+        <label>Do Not Sell or Share My Personal Information</label>
+      </div>
+      <div class="option2">
+        <label>Accessibility Statement</label>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="carousel.js"></script>
+  </body>
+</html>
