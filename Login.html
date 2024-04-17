@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="Login.css" />
+    <style>
+      /* Additional styles for login section */
+
+
+      .login-container {
+        text-align: center;
+        margin-top: 20px;
+        border: 2px solid black;
+        padding-bottom: 40px;
+        border-radius: 20px;
+        width: 85%;
+      }
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        
+      }
+      .login-form label {
+        width: 100%;
+        text-align: left;
+        margin-left: 10px;
+        margin-top: 50px;
+       
+      }
+      .login-form input[type="text"],
+      .login-form input[type="password"] {
+        width: 200px;
+        padding: 10px;
+        margin-left: 150px;
+        margin-top: -30px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .login-form input[type="checkbox"] {
+        margin-left: -100px;
+        margin-top: 20px;
+      }
+      .forgot-password {
+        color: blue;
+        font-size: 15px;
+        width: 100%;
+        margin-top: 5px;
+        margin-left: 15px;
+        text-decoration: underline;
+      }
+      .login-form button {
+        margin-top: 10px;
+        max-width: 100px;
+        margin-left: 150px;
+      }
+      .loginLabel {
+        text-align: center;
+      }
+      .remember-me {
+        margin-left: 120px;
+      }
+      .social-buttons {
+        display: flex;
+        justify-content: space-around; /* Adjust alignment as needed */
+        margin-top: 20px; /* Adjust margin as needed */
+        }
+
+        .social-buttons button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        }
+
+        .social-buttons button img {
+        width: 30px; /* Adjust image size as needed */
+        height: auto;
+        margin-bottom: 5px; /* Adjust margin as needed */
+        }
+       
+      .buttonClass {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        justify-content: center;
+      }
+      .buttonClass button {
+        padding: 10px 20px;
+      }
+      
+    
+    </style>
+  </head>
+
+  <body>
+    <!-- Your header code -->
+    <header>
+      <div class="logo-container">
+        <a href="index.html"
+          ><img class="logoimg" src="images/logo.jpeg" alt=""
+        /></a>
+      </div>
+      <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <a href="cart.html" class="shopping-cart-icon">
+          <img src="images/cart.png" alt="Shopping Cart" />
+        </a>
+        <ul id="menu" class="hidden menu">
+          <li><a class="buttons" href="index.html">Home</a></li>
+          <li><a class="buttons" href="menu.html">Menu</a></li>
+          <li><a class="buttons" href="#">Specials</a></li>
+          <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
+          <li><a class="buttons" href="dashboard.html">Dark mode</a></li>
+          <li><a class="buttons" href="Login.html">Log In</a></li>
+          <li><a class="buttons" href="dashboard.html">Sign Up</a></li>
+          <li><a class="buttons" href="dashboard.html">Contact Us</a></li>
+          <li><a class="buttons" href="dashboard.html">About Us</a></li>
+          <li><a class="buttons" href="dashboard.html">Rating & Review</a></li>
+        </ul>
+      </nav>
+      <div class="darkmodeDiv">
+        <div class="dark-mode-switch">
+          <label>Dark Mode</label>
+          <input type="checkbox" id="darkModeToggle" />
+          <label for="darkModeToggle" class="toggle"></label>
+        </div>
+        <br />
+        <div class="user-actions">
+          <button>Login</button>
+          <button>Sign Up</button>
+          <div class="shopping-cart">
+            <a href="cart.html"
+              ><img src="images/cart.png" alt="Shopping Cart"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <h2 class="loginLabel">Login / Sign Up</h2>
+   
+    <div class="login-container">
+      <div class="login-form">
+        
+        <label for="email">Email Address:</label>
+        <input type="text" id="email" name="email" placeholder="Enter your email address">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+
+        <div class="remember-me">
+        <input type="checkbox" id="remember-me">
+        <label for="remember-me">Remember me</label>
+        </div>
+        <p class="forgot-password">Forgot your password?</p>
+
+        <button type="submit">Sign In</button>
+        <p style="text-align: left; margin-top: 20px;">Sign in using your account with:</p>
+        
+      </div>
+        <div class="buttonClass">
+            <button style="background-color: #3b5998; color: white; padding: 8px 15px; border: none; border-radius: 5px;">
+                <img src="images/facebook.png" alt="Facebook" style="height: 20px; width: auto; margin-right: 5px;">
+                Facebook
+              </button>
+              <button style="background-color: #00acee; color: white; padding: 8px 15px; border: none; border-radius: 5px;">
+                <img src="images/twitter.png" alt="Twitter" style="height: 20px; width: auto; margin-right: 5px;">
+                Twitter
+              </button>
+              <button style="background-color: #db4437; color: white; padding: 8px 15px; border: none; border-radius: 5px;">
+                <img src="images/google.jpg" alt="Google" style="height: 20px; width: auto; margin-right: 5px;">
+                Google
+              </button>
+        </div>
+    </div>
+    <!-- Your footer code -->
+  </body>
+</html>
