@@ -28,7 +28,15 @@
           <li><a class="buttons" href="menu.html">Menu</a></li>
           <li><a class="buttons" href="#">Specials</a></li>
           <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
+          <div class="darkModeContainer">
           <li><a class="buttons" href="dashboard.html">Dark mode</a></li>
+          <li>
+            <label class="switch">
+              <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()" />
+              <span class="slider round"></span>
+            </label>
+          </li>
+        </div>
           <li><a class="buttons" href="Login.html">Log In</a></li>
           <li><a class="buttons" href="dashboard.html">Sign Up</a></li>
           <li><a class="buttons" href="dashboard.html">Contact Us</a></li>
@@ -36,23 +44,7 @@
           <li><a class="buttons" href="dashboard.html">Rating & Review</a></li>
         </ul>
       </nav>
-      <div class="darkmodeDiv">
-        <div class="dark-mode-switch">
-          <label>Dark Mode</label>
-          <input type="checkbox" id="darkModeToggle" />
-          <label for="darkModeToggle" class="toggle"></label>
-        </div>
-        <br />
-        <div class="user-actions">
-          <button>Login</button>
-          <button>Sign Up</button>
-          <div class="shopping-cart">
-            <a href="cart.html"
-              ><img src="images/cart.png" alt="Shopping Cart"
-            /></a>
-          </div>
-        </div>
-      </div>
+    
     </header>
 
     <div class="carousel">

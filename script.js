@@ -30,3 +30,14 @@ function prevSlide() {
 
 // Show the first slide initially
 showSlide(currentSlide);
+
+
+
+function toggleDarkMode() {
+  const body = document.body;
+  const menu = document.querySelector('.menu');
+
+  body.classList.toggle("dark-mode");
+  menu.classList.toggle("dark-mode-menu");
+  // You can also save the user's preference in local storage if needed
+}

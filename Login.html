@@ -9,7 +9,7 @@
     <style>
       /* Additional styles for login section */
 
-
+      @media only screen and (max-width: 768px) {
       .login-container {
         text-align: center;
         margin-top: 20px;
@@ -93,59 +93,54 @@
       .buttonClass button {
         padding: 10px 20px;
       }
-      
-    
+      button:hover {
+        background-color: #000000; /* New background color when hovered */
+    }
+   
+}
     </style>
   </head>
 
   <body>
     <!-- Your header code -->
     <header>
-      <div class="logo-container">
-        <a href="index.html"
-          ><img class="logoimg" src="images/logo.jpeg" alt=""
-        /></a>
-      </div>
-      <nav>
-        <div class="menu-toggle" onclick="toggleMenu()">
-          <div></div>
-          <div></div>
-          <div></div>
+        <div class="logo-container">
+          <a href="index.html"
+            ><img class="logoimg" src="images/logo.jpeg" alt=""
+          /></a>
         </div>
-        <a href="cart.html" class="shopping-cart-icon">
-          <img src="images/cart.png" alt="Shopping Cart" />
-        </a>
-        <ul id="menu" class="hidden menu">
-          <li><a class="buttons" href="index.html">Home</a></li>
-          <li><a class="buttons" href="menu.html">Menu</a></li>
-          <li><a class="buttons" href="#">Specials</a></li>
-          <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
-          <li><a class="buttons" href="dashboard.html">Dark mode</a></li>
-          <li><a class="buttons" href="Login.html">Log In</a></li>
-          <li><a class="buttons" href="dashboard.html">Sign Up</a></li>
-          <li><a class="buttons" href="dashboard.html">Contact Us</a></li>
-          <li><a class="buttons" href="dashboard.html">About Us</a></li>
-          <li><a class="buttons" href="dashboard.html">Rating & Review</a></li>
-        </ul>
-      </nav>
-      <div class="darkmodeDiv">
-        <div class="dark-mode-switch">
-          <label>Dark Mode</label>
-          <input type="checkbox" id="darkModeToggle" />
-          <label for="darkModeToggle" class="toggle"></label>
-        </div>
-        <br />
-        <div class="user-actions">
-          <button>Login</button>
-          <button>Sign Up</button>
-          <div class="shopping-cart">
-            <a href="cart.html"
-              ><img src="images/cart.png" alt="Shopping Cart"
-            /></a>
+        <nav>
+          <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
-        </div>
-      </div>
-    </header>
+          <a href="cart.html" class="shopping-cart-icon">
+            <img src="images/cart.png" alt="Shopping Cart" />
+          </a>
+          <ul id="menu" class="hidden menu">
+            <li><a class="buttons" href="index.html">Home</a></li>
+            <li><a class="buttons" href="menu.html">Menu</a></li>
+            <li><a class="buttons" href="#">Specials</a></li>
+            <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
+            <div class="darkModeContainer">
+            <li><a class="buttons" href="dashboard.html">Dark mode</a></li>
+            <li>
+              <label class="switch">
+                <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()" />
+                <span class="slider round"></span>
+              </label>
+            </li>
+          </div>
+            <li><a class="buttons" href="Login.html">Log In</a></li>
+            <li><a class="buttons" href="dashboard.html">Sign Up</a></li>
+            <li><a class="buttons" href="dashboard.html">Contact Us</a></li>
+            <li><a class="buttons" href="dashboard.html">About Us</a></li>
+            <li><a class="buttons" href="dashboard.html">Rating & Review</a></li>
+          </ul>
+        </nav>
+      
+      </header>
 
     <h2 class="loginLabel">Login / Sign Up</h2>
    
@@ -169,20 +164,22 @@
         
       </div>
         <div class="buttonClass">
-            <button style="background-color: #3b5998; color: white; padding: 8px 15px; border: none; border-radius: 5px;">
-                <img src="images/facebook.png" alt="Facebook" style="height: 20px; width: auto; margin-right: 5px;">
-                Facebook
-              </button>
+            <button style="background-color: #3b5998; color: white; padding: 8px 15px; border: none; border-radius: 5px;
+              transition: background-color 0.5s;">
+            <img src="images/facebook.png" alt="Facebook" style="height: 20px; width: auto; margin-right: 5px;">
+            <span style="position: relative; top: -2px;">Facebook</span>
+            </button>
               <button style="background-color: #00acee; color: white; padding: 8px 15px; border: none; border-radius: 5px;">
                 <img src="images/twitter.png" alt="Twitter" style="height: 20px; width: auto; margin-right: 5px;">
-                Twitter
+                <span style="position: relative; top: -4px;">Twitter</span>
               </button>
               <button style="background-color: #db4437; color: white; padding: 8px 15px; border: none; border-radius: 5px;">
                 <img src="images/google.jpg" alt="Google" style="height: 20px; width: auto; margin-right: 5px;">
-                Google
+                <span style="position: relative; top: -4px;">Google</span>
               </button>
         </div>
     </div>
     <!-- Your footer code -->
   </body>
+  <script src="script.js"></script>
 </html>
