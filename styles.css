@@ -833,4 +833,9 @@ input:checked + .slider:before {
   margin-left: 10px;
   margin-right: -600px;
 }
+.footerClassMenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
 }
