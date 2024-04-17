@@ -544,6 +544,7 @@ footer ul li a {
 
   /* Style for the dropdown menu */
   .menu {
+    background-image: url(images/output-onlinepngtools.png);
     position: fixed;
     top: 0;
     left: 0;
