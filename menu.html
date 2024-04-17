@@ -5,38 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="menu_style.css">
     <title>Menu</title>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
-    <script>
-        // Initialize Firebase
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
-        firebase.initializeApp(firebaseConfig);
-        
-        // Get a reference to the Firestore database service
-        const db = firebase.firestore();
 
-        // Function to add item to cart
-        function addToCart(itemName) {
-            // Add item to Firestore
-            db.collection("cart").add({
-                itemName: itemName,
-                addedAt: firebase.firestore.FieldValue.serverTimestamp()
-            })
-            .then((docRef) => {
-                console.log("Item added to cart with ID: ", docRef.id);
-            })
-            .catch((error) => {
-                console.error("Error adding item to cart: ", error);
-            });
-        }
-    </script>
 </head>
 <br>
     <header>
