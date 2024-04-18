@@ -11,36 +11,66 @@
 <body>
 
     <header>
-        <a href="index.html"><img class="logoimg" src="images/noimage.png" alt=""></a>
-          <nav>
-              <div class="menu-toggle">
-                  <div class="line"></div>
-                  <div class="line"></div>
-                  <div class="line"></div>
-              </div>
-              <ul class="menu-items">
-                  <li><a class="buttons" href="index.html">Home</a></li>
-                  <li><a class="buttons" href="menu.html">Menu</a></li>
-                  <li><a class="buttons" href="#">Specials</a></li>
-                  <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
-                  <li><a class="buttons" href="dashboard.html">Dashboard</a></li>
-              </ul>
-          </nav>
-          <div class = "darkmodeDiv">
-            <div class="dark-mode-switch">
-              <label>Dark Mode</label>
-                <input type="checkbox" id="darkModeToggle">
-                <label for="darkModeToggle" class="toggle"></label>
-            </div>
-            <br>
-            <div class="user-actions">
-                <button>Login</button>
-                <button>Sign Up</button>
-                <div class="shopping-cart">
-                    <a href="cart.html"><img src="images/cart.png" alt="Shopping Cart"></a>
-                </div>
-          </div>
+        <div class="logo-container">
+          <a href="index.html"
+            ><img class="logoimg" src="images/logo.jpeg" alt=""
+          /></a>
         </div>
+        <nav>
+          <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <a href="cart.html" class="shopping-cart-icon">
+            <img src="images/cart.png" alt="Shopping Cart" />
+          </a>
+          
+          <ul id="menu" class="hidden menu">
+            <div class="menuOuter">
+            <div class="menuoption1">
+            <li><a class="buttons" href="index.html">Home</a></li>
+            </div>
+            <div class="menuoption">
+            <li><a class="buttons" href="menu.html">Menu</a></li>
+            </div>
+            <div class="menuoption1">
+            <li><a class="buttons" href="#">Specials</a></li>
+            </div>
+            <div class="menuoption">
+            <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
+            </div>
+            <div class="darkModeContainer menuoption1">
+            <li><a class="buttons" href="">Dark mode</a></li>
+            <li>
+              <label class="switch">
+                <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()" />
+                <span class="slider round"></span>
+              </label>
+            </li>
+  
+          </div>
+          <div class="menuoption">
+            <li><a class="buttons" href="Login.html">Log In</a></li>
+          </div>
+          <div class="menuoption1">
+            <li><a class="buttons" href="Login.html">Sign Up</a></li>
+          </div>
+          <div class="menuoption">
+            <li><a class="buttons" href="">Contact Us</a></li>
+          </div>
+          <div class="menuoption1">
+            <li><a class="buttons" href="">About Us</a></li>
+          </div>
+          <div class="ratingReview">
+            <li><a class="buttons" href="">Rating & Review</a></li>
+          </div>
+        
+        </div>
+  
+          </ul>
+          
+        </nav>
       </header>
 
     <div class="container">
@@ -171,4 +201,5 @@
         </ul>
     </footer>
 </body>
+<script src="script.js"></script>
 </html>
