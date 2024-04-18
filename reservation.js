@@ -119,3 +119,16 @@ function getTime(timeNumber) {
 function backToMenu() {
   window.location.href = "index.html";
 }
+
+var today = new Date();
+var day = today.getDate();
+var month = today.toLocaleString('default', { month: 'short' });
+var dateBoxes = document.querySelectorAll('.date-box');
+dateBoxes[0].textContent = month + ' ' + day;
+for (var i = 1; i < dateBoxes.length; i++) {
+    var nextDate = new Date();
+    nextDate.setDate(today.getDate() + i);
+    var nextDay = nextDate.getDate();
+    var nextMonth = nextDate.toLocaleString('default', { month: 'short' });
+    dateBoxes[i].textContent = nextMonth + ' ' + nextDay;
+}
