@@ -8,40 +8,67 @@
 
 </head>
 <br>
-    <header>
-        <a href="index.html"><img class="logoimg" src="images/logo.jpeg" alt=""></a>
-          <nav>
-              <div class="menu-toggle">
-                  <div class="line"></div>
-                  <div class="line"></div>
-                  <div class="line"></div>
-              </div>
-              <div>
-              <ul class="menu-items">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="menu.html">Menu</a></li>
-                  <li><a href="#">Specials</a></li>
-                  <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
-                  <li><a class="buttons" href="dashboard.html">Dashboard</a></li>
-              </ul>
-              </div>
-          </nav>
-          <div class = "darkmodeDiv">
-            <div class="dark-mode-switch">
-              <label>Dark Mode</label>
-                <input type="checkbox" id="darkModeToggle">
-                <label for="darkModeToggle" class="toggle"></label>
-            </div>
-            <br>
-            <div class="user-actions">
-                <button>Login</button>
-                <button>Sign Up</button>
-                <div class="shopping-cart">
-                    <a href="cart.html"><img src="images/cart.png" alt="Shopping Cart"></a>
-                </div>
+<header>
+    <div class="logo-container">
+      <a href="index.html"
+        ><img class="logoimg" src="images/logo.jpeg" alt=""
+      /></a>
+    </div>
+    <nav>
+
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <a href="cart.html" class="shopping-cart-icon">
+        <img src="images/cart.png" alt="Shopping Cart" />
+      </a>
+      
+      <ul id="menu" class="hidden menu">
+        <div class="menuOuter">
+          <div class="menuoption1">
+          <li><a class="buttons" href="index.html">Home</a></li>
+          </div>
+          <div class="menuoption">
+          <li><a class="buttons" href="menu.html">Menu</a></li>
+          </div>
+          <div class="menuoption1">
+          <li><a class="buttons" href="#">Specials</a></li>
+          </div>
+          <div class="menuoption">
+          <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
+          </div>
+          <div class="darkModeContainer menuoption1">
+          <li><a class="buttons" href="dashboard.html">Dark mode</a></li>
+          <li>
+            <label class="switch">
+              <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()" />
+              <span class="slider round"></span>
+            </label>
+          </li>
+
+          </div>
+          <div class="menuoption">
+            <li><a class="buttons" href="Login.html">Log In</a></li>
+          </div>
+          <div class="menuoption1">
+            <li><a class="buttons" href="dashboard.html">Sign Up</a></li>
+          </div>
+          <div class="menuoption">
+            <li><a class="buttons" href="dashboard.html">Contact Us</a></li>
+          </div>
+          <div class="menuoption1">
+            <li><a class="buttons" href="dashboard.html">About Us</a></li>
+          </div>
+          <div class="ratingReview">
+            <li><a class="buttons" href="dashboard.html">Rating & Review</a></li>
           </div>
         </div>
-      </header>
+      </ul>
+      
+    </nav>
+  </header>
       <div class ="menuDiv">
         <label class ="MenuText">Menu</label>
       </div>
@@ -83,7 +110,7 @@
         <!-- Item 1 -->
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 5">
-            <h3>Item 1 Name</h3>
+            <h3>Item 5 Name</h3>
             <button class="add-to-cart-btn">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
@@ -91,7 +118,7 @@
         <!-- Item 2 -->
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 6">
-            <h3>Item 2 Name</h3>
+            <h3>Item 6 Name</h3>
             <button class="add-to-cart-btn">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
@@ -99,7 +126,7 @@
         <!-- Item 3 -->
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 7">
-            <h3>Item 3 Name</h3>
+            <h3>Item 7 Name</h3>
             <button class="add-to-cart-btn">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
@@ -107,25 +134,40 @@
         <!-- Item 4 -->
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 8">
-            <h3>Item 4 Name</h3>
+            <h3>Item 8 Name</h3>
             <button class="add-to-cart-btn">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
     </main>
       
-    <footer class = "footer">
-        <ul>
-            <li class="contact-us"><a class="label-tag" href="#">Contact Us</a></li>
-            <li class="contact-us"><a href="#">Nutritional & Allergens</a></li>
-            <li class="contact-us"><a href="#">Careers</a></li>
-            <li class="contact-us"><a href="#">FAQs</a></li>
-            <li class="contact-us"><a href="#">Gift Cards & Offers</a></li>
-            <li class="contact-us"><a href="#">Legal Notice</a></li>
-            <li class="contact-us"><a href="#">Privacy Policy</a></li>
-            <li class="contact-us"><a href="#">Do Not Sell or Share My Personal Information</a></li>
-            <li class="contact-us"><a href="#">Accessibility Statement</a></li>
-        </ul>
-    </footer>
-    <button onclick="addToCart('Item 1 Name')">Add to Cart</button>
+    <footer class="footerClass">
+        <div class="option1">
+          <label>Contact Us</label>
+        </div>
+        <div class="option2">
+          <label>Nutritional & Allergens</label>
+        </div>
+        <div class="option1">
+          <label>Careers</label>
+        </div>
+        <div class="option2">
+          <label>FAQs</label>
+        </div>
+        <div class="option1">
+          <label>Gift Cards & Offers</label>
+        </div>
+        <div class="option2">
+          <label>Legal & Privacy Notices</label>
+        </div>
+        <div class="option1">
+          <label>Do Not Sell or Share My Personal Information</label>
+        </div>
+        <div class="option2">
+          <label>Accessibility Statement</label>
+        </div>
+      </footer>
 </body>
+<script src="script.js"></script>
+    <script src="carousel.js"></script>
+    <script src="carouselRotation.js"></script>
 </html>

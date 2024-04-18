@@ -1,94 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reservation_style.css">
-    <title>Reservation Page</title>
-</head>
-<body>
-    <header>
-        <a href="index.html"><img class="logoimg" src="images/noimage.png" alt=""></a>
-          <nav>
-              <div class="menu-toggle">
-                  <div class="line"></div>
-                  <div class="line"></div>
-                  <div class="line"></div>
-              </div>
-              <ul class="menu-items">
-                  <li><a class="buttons" href="index.html">Home</a></li>
-                  <li><a class="buttons" href="menu.html">Menu</a></li>
-                  <li><a class="buttons" href="#">Specials</a></li>
-                  <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
-                  <li><a class="buttons" href="dashboard.html">Dashboard</a></li>
-              </ul>
-          </nav>
-          <div class = "darkmodeDiv">
-            <div class="dark-mode-switch">
-              <label>Dark Mode</label>
-                <input type="checkbox" id="darkModeToggle">
-                <label for="darkModeToggle" class="toggle"></label>
-            </div>
-            <br>
-            <div class="user-actions">
-                <button>Login</button>
-                <button>Sign Up</button>
-                <div class="shopping-cart">
-                    <a href="cart.html"><img src="images/cart.png" alt="Shopping Cart"></a>
-                </div>
-          </div>
-        </div>
-      </header>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="reservation_style.css">
 
-    <div class="reservation-container">
-        <h2>Make a Reservation</h2>
-        <form>
-            <label for="date">Select Date:</label>
-            <input type="date" id="date" name="date" required>
+		<title>Reservation Page</title>
+	</head>
+	<body>
+		<header>
+			<div class="logo-container">
+			  <a href="index.html"
+				><img class="logoimg" src="images/logo.jpeg" alt=""
+			  /></a>
+			</div>
+			<nav>
+			  <div class="menu-toggle" onclick="toggleMenu()">
+				<div></div>
+				<div></div>
+				<div></div>
+			  </div>
+			  <a href="cart.html" class="shopping-cart-icon">
+				<img src="images/cart.png" alt="Shopping Cart" />
+			  </a>
+			  
+			  <ul id="menu" class="hidden menu">
+				<div class="menuOuter">
+				<div class="menuoption1">
+				<li><a class="buttons" href="index.html">Home</a></li>
+				</div>
+				<div class="menuoption">
+				<li><a class="buttons" href="menu.html">Menu</a></li>
+				</div>
+				<div class="menuoption1">
+				<li><a class="buttons" href="#">Specials</a></li>
+				</div>
+				<div class="menuoption">
+				<li><a class="buttons" href="reservation.html">Reserve Now</a></li>
+				</div>
+				<div class="darkModeContainer menuoption1">
+				<li><a class="buttons" href="dashboard.html">Dark mode</a></li>
+				<li>
+				  <label class="switch">
+					<input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()" />
+					<span class="slider round"></span>
+				  </label>
+				</li>
+	  
+			  </div>
+			  <div class="menuoption">
+				<li><a class="buttons" href="Login.html">Log In</a></li>
+			  </div>
+			  <div class="menuoption1">
+				<li><a class="buttons" href="dashboard.html">Sign Up</a></li>
+			  </div>
+			  <div class="menuoption">
+				<li><a class="buttons" href="dashboard.html">Contact Us</a></li>
+			  </div>
+			  <div class="menuoption1">
+				<li><a class="buttons" href="dashboard.html">About Us</a></li>
+			  </div>
+			  <div class="ratingReview">
+				<li><a class="buttons" href="dashboard.html">Rating & Review</a></li>
+			  </div>
+			
+			</div>
+	  
+			  </ul>
+			  
+			</nav>
+		  </header>
 
-            <label for="time">Select Time:</label>
-            <select id="time" name="time" required>
-                <!-- Morning Times -->
-                <optgroup label = "Morning">
-                    <option value="09:00">09:00 AM - 10:00 AM</option>
-                    <option value="10:00">10:00 AM - 11:00 AM</option>
-                    <option value="11:00">11:00 AM - 12:00 PM</option>
-                </optgroup>
+		<div class="container">
+			<div class="reservation-container" id="reservation-container">
+				<div class="date-container" id="date-container">
+					<h2>Select Date</h2>
+					<div class="date-box" id="date-box-1">May 5</div>
+					<div class="date-box" id="date-box-2">May 6</div>
+					<div class="date-box" id="date-box-3">May 7</div>
+					<div class="date-box" id="date-box-4">May 8</div>
+					<div class="date-box" id="date-box-5">May 9</div>
+				</div>
 
-                <!-- Afternoon Times -->
-                <optgroup label = "Afternoon">
-                    <option value="13:00">01:00 PM - 02:00 PM</option>
-                    <option value="14:00">02:00 PM - 03:00 PM</option>
-                    <option value="15:00">03:00 PM - 04:00 PM</option>
-                </optgroup>
+				<div class="time-container" id="time-container">
+					<h2>Select Time</h2>
+					<div class="time-box" id="time-box-1">11:00 AM - 12:00 PM</div>
+					<div class="time-box" id="time-box-2">12:00 PM - 01:00 PM</div>
+					<div class="time-box" id="time-box-3">01:00 PM - 02:00 PM</div>
+					<div class="time-box" id="time-box-4">02:00 PM - 03:00 PM</div>
+				</div>
+				<button class="confirm-button" onclick="confirmReservation()">Confirm Reservation</button>			
+			</div>
 
-                <!-- Dinner Times -->
-                <optgroup label = "Dinner">
-                    <option value="18:00">06:00 PM - 07:00 PM</option>
-                    <option value="19:00">07:00 PM - 08:00 PM</option>
-                    <option value="20:00">08:00 PM - 09:00 PM</option>
-                    <option value="21:00">09:00 PM - 10:00 PM</option>
-                    <option value="22:00">10:00 PM - 11:00 PM</option>
-                </optgroup>
+			<div class="reservation-info" id="reservation-info"></div>
 
-            </select>
+		</div>
 
-            <button type="submit">Confirm Reservation</button>
-        </form>
-    </div>
-      
-    <footer class = "footer">
-        <ul>
-            <li class="contact-us"><a class="label-tag" href="#">Contact Us</a></li>
-            <li class="contact-us"><a href="#">Nutritional & Allergens</a></li>
-            <li class="contact-us"><a href="#">Careers</a></li>
-            <li class="contact-us"><a href="#">FAQs</a></li>
-            <li class="contact-us"><a href="#">Gift Cards & Offers</a></li>
-            <li class="contact-us"><a href="#">Legal Notice</a></li>
-            <li class="contact-us"><a href="#">Privacy Policy</a></li>
-            <li class="contact-us"><a href="#">Do Not Sell or Share My Personal Information</a></li>
-            <li class="contact-us"><a href="#">Accessibility Statement</a></li>
-        </ul>
-    </footer>
-</body>
+		<footer class="footerClass">
+			<div class="option1">
+			  <label>Contact Us</label>
+			</div>
+			<div class="option2">
+			  <label>Nutritional & Allergens</label>
+			</div>
+			<div class="option1">
+			  <label>Careers</label>
+			</div>
+			<div class="option2">
+			  <label>FAQs</label>
+			</div>
+			<div class="option1">
+			  <label>Gift Cards & Offers</label>
+			</div>
+			<div class="option2">
+			  <label>Legal & Privacy Notices</label>
+			</div>
+			<div class="option1">
+			  <label>Do Not Sell or Share My Personal Information</label>
+			</div>
+			<div class="option2">
+			  <label>Accessibility Statement</label>
+			</div>
+		  </footer>
+
+		<script src="reservation.js"></script>
+		<script src="script.js"></script>
+	</body>
 </html>
