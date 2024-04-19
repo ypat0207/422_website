@@ -82,13 +82,10 @@
       <div class="border">
         <div class="row border">
           <div class="col">
-            <div class="row">
-              <div class="col">Price:</div>
-              <div class="col text-right">$50.00</div>
-            </div>
+            
             <div class="row">
               <div class="col">Total Price:</div>
-              <div class="col text-right">$60.00</div>
+              <div class="col text-right total-price">$0.00</div>
             </div>
           </div>
           <div class="col pl-5">
@@ -156,8 +153,17 @@
         try {
           // Get the 'cart' collection from Firestore
           const querySnapshot = await getDocs(collection(db, "cart"));
+          let totalPrice = 0; 
+          let itemCount = 0;
+          querySnapshot.forEach((doc) => {
+      itemCount++; // Increment item count for each item
+        });
 
-          // Iterate over the documents and create HTML structure for each item
+        // Calculate total price based on the number of items
+        totalPrice = itemCount * 10; // Assuming each item costs $10
+
+        // Display total price dynamically in the HTML
+        document.querySelector('.total-price').textContent = `$${totalPrice.toFixed(2)}`;
           querySnapshot.forEach((doc) => {
             const itemPic = doc.data().image
             const itemName = doc.data().item;
@@ -165,12 +171,16 @@
             const itemId = doc.id; // Get the document ID
             const itemDiv = createCartItemDiv(itemName, itemPrice, itemId, itemPic);
             document.getElementById("cart-container").appendChild(itemDiv);
+            const quantityDropdown = itemDiv.querySelector(".quantity-dropdown");
+            
           });
+        
         } catch (error) {
           console.error("Error getting documents: ", error);
         }
       });
 
+    
       // Function to create HTML structure for each cart item
       function createCartItemDiv(itemName, itemPrice, itemId, itemPic) {
   const containerDiv = document.createElement("div");
@@ -210,9 +220,10 @@ imgElement.style.height = "80px";
   // Create a span element for the item name
   const itemNameSpan = document.createElement("span");
   itemNameSpan.textContent = itemName;
+  itemNameSpan.style.position = "absolute";
   itemNameSpan.style.marginLeft = "30px";
-  itemNameSpan.style.position = "fixed";
   itemNameSpan.style.marginTop = "30px";
+  itemNameSpan.style.fontSize = "25px";
   itemNameSpan.style.fontWeight = "bolder";
 
   itemDiv.appendChild(itemNameSpan);
@@ -223,15 +234,16 @@ imgElement.style.height = "80px";
   const deleteLink = document.createElement("a");
   deleteLink.classList.add("text-danger");
   deleteLink.textContent = "Delete";
-  deleteLink.style.position = "fixed";
+  deleteLink.style.position = "absolute";
   deleteLink.style.right = "55px";
   deleteLink.href = "#";
   deleteLink.addEventListener("click", async () => {
     try {
-      // Delete the document from Firestore
-      await deleteDoc(doc(db, "cart", itemId));
-      // Remove the item from the HTML
-      containerDiv.remove();
+
+    await deleteDoc(doc(db, "cart", itemId));
+    containerDiv.remove();
+    
+  
     } catch (error) {
       console.error("Error deleting document: ", error);
     }

@@ -399,6 +399,9 @@ footer ul li a {
    
 }
 @media only screen and (max-width: 768px) {
+  .total-price {
+    margin-top: -35px;
+  }
     .menu-items {
       display: none;
     }
