@@ -196,21 +196,22 @@
     
             addToCartButtons.forEach(button => {
                 button.addEventListener('click', function (event) {
-                    const itemName = event.target.parentNode.querySelector('h3').textContent;
+                  const itemName = event.target.parentNode.querySelector('h3').textContent;
+                  const itemImage = event.target.parentNode.querySelector('img').src;
     
                     // Add the item to the cart in Firestore
                     alert("Item added to cart");
-                    addItemToCart(itemName);
+                    addItemToCart(itemName, itemImage);
                 });
             });
         });
     
-        async function addItemToCart(itemName) {
+        async function addItemToCart(itemName, itemImage) {
             try {
                 // Add the item to the 'cart' collection in Firestore
                 await addDoc(collection(db, "cart"), {
-                    item: itemName
-          
+                    item: itemName,
+                    image: itemImage
                 });
                 // Redirect to cart page
           

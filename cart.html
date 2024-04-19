@@ -159,10 +159,11 @@
 
           // Iterate over the documents and create HTML structure for each item
           querySnapshot.forEach((doc) => {
+            const itemPic = doc.data().image
             const itemName = doc.data().item;
             const itemPrice = "$10.00"; // Replace with actual price from Firestore if available
             const itemId = doc.id; // Get the document ID
-            const itemDiv = createCartItemDiv(itemName, itemPrice, itemId);
+            const itemDiv = createCartItemDiv(itemName, itemPrice, itemId, itemPic);
             document.getElementById("cart-container").appendChild(itemDiv);
           });
         } catch (error) {
@@ -171,92 +172,120 @@
       });
 
       // Function to create HTML structure for each cart item
-      function createCartItemDiv(itemName, itemPrice, itemId) {
-        const containerDiv = document.createElement("div");
-        containerDiv.classList.add("container");
+      function createCartItemDiv(itemName, itemPrice, itemId, itemPic) {
+  const containerDiv = document.createElement("div");
+  containerDiv.classList.add("container");
 
-        const borderDiv = document.createElement("div");
-        borderDiv.classList.add("border");
+  const borderDiv = document.createElement("div");
+  borderDiv.classList.add("border");
+  borderDiv.style.borderColor = "black";
+  borderDiv.style.borderWidth = "2px"
 
-        const rowDiv = document.createElement("div");
-        rowDiv.classList.add("row", "border");
+  const rowDiv = document.createElement("div");
+  rowDiv.classList.add("row", "border");
+  rowDiv.style.borderColor = "black";
+  rowDiv.style.borderWidth = "2px"
 
-        const col1Div = document.createElement("div");
-        col1Div.classList.add("col");
+  const col1Div = document.createElement("div");
+  col1Div.classList.add("col");
+  
 
-        const innerRowDiv = document.createElement("div");
-        innerRowDiv.classList.add("row");
+  const innerRowDiv = document.createElement("div");
+  innerRowDiv.classList.add("row");
 
-        const itemDiv = document.createElement("div");
-        itemDiv.classList.add("item");
-        itemDiv.textContent = itemName;
+  const itemDiv = document.createElement("div");
+  itemDiv.classList.add("item");
 
-        const deleteRowDiv = document.createElement("div");
-        deleteRowDiv.classList.add("row");
+  // Create and configure the image element
+  const imgElement = document.createElement("img");
+  imgElement.src = itemPic;
+  imgElement.alt = itemName; // Set alt attribute for accessibility
+  imgElement.classList.add("item-image");
+  imgElement.style.width = "120px";
+imgElement.style.height = "80px";
 
-        const deleteLink = document.createElement("a");
-        deleteLink.classList.add("text-danger");
-        deleteLink.textContent = "Delete";
-        deleteLink.href = "#";
-        deleteLink.addEventListener("click", async () => {
-          try {
-            // Delete the document from Firestore
-            await deleteDoc(doc(db, "cart", itemId));
-            // Remove the item from the HTML
-            containerDiv.remove();
-          } catch (error) {
-            console.error("Error deleting document: ", error);
-          }
-        });
+  // Append the image to the itemDiv
+  itemDiv.appendChild(imgElement);
 
-        const col2Div = document.createElement("div");
-        col2Div.classList.add("col");
+  // Create a span element for the item name
+  const itemNameSpan = document.createElement("span");
+  itemNameSpan.textContent = itemName;
+  itemNameSpan.style.marginLeft = "30px";
+  itemNameSpan.style.position = "fixed";
+  itemNameSpan.style.marginTop = "30px";
+  itemNameSpan.style.fontWeight = "bolder";
 
-        const formGroupDiv = document.createElement("div");
-        formGroupDiv.classList.add("form-group");
+  itemDiv.appendChild(itemNameSpan);
 
-        const quantityLabel = document.createElement("label");
-        quantityLabel.setAttribute("for", "quantityDropdown");
-        quantityLabel.textContent = "Quantity:";
+  const deleteRowDiv = document.createElement("div");
+  deleteRowDiv.classList.add("row");
 
-        const quantityDropdown = document.createElement("select");
-        quantityDropdown.classList.add("form-control");
-        quantityDropdown.id = "quantityDropdown";
-        const quantityOptions = [1, 2, 3];
-        quantityOptions.forEach((option) => {
-          const optionElement = document.createElement("option");
-          optionElement.textContent = option;
-          quantityDropdown.appendChild(optionElement);
-        });
+  const deleteLink = document.createElement("a");
+  deleteLink.classList.add("text-danger");
+  deleteLink.textContent = "Delete";
+  deleteLink.style.position = "fixed";
+  deleteLink.style.right = "55px";
+  deleteLink.href = "#";
+  deleteLink.addEventListener("click", async () => {
+    try {
+      // Delete the document from Firestore
+      await deleteDoc(doc(db, "cart", itemId));
+      // Remove the item from the HTML
+      containerDiv.remove();
+    } catch (error) {
+      console.error("Error deleting document: ", error);
+    }
+  });
 
-        const col3Div = document.createElement("div");
-        col3Div.classList.add("col", "text-right");
+  const col2Div = document.createElement("div");
+  col2Div.classList.add("col");
 
-        const priceDiv = document.createElement("div");
-        priceDiv.classList.add("price");
-        priceDiv.textContent = "Price: ";
-        const boldSpan = document.createElement("span");
-        boldSpan.classList.add("font-weight-bold");
-        boldSpan.textContent = itemPrice;
-        priceDiv.appendChild(boldSpan);
+  const formGroupDiv = document.createElement("div");
+  formGroupDiv.classList.add("form-group");
 
-        // Append all elements to their respective parent elements
-        containerDiv.appendChild(borderDiv);
-        borderDiv.appendChild(rowDiv);
-        rowDiv.appendChild(col1Div);
-        col1Div.appendChild(innerRowDiv);
-        innerRowDiv.appendChild(itemDiv);
-        innerRowDiv.appendChild(deleteRowDiv);
-        deleteRowDiv.appendChild(deleteLink);
-        rowDiv.appendChild(col2Div);
-        col2Div.appendChild(formGroupDiv);
-        formGroupDiv.appendChild(quantityLabel);
-        formGroupDiv.appendChild(quantityDropdown);
-        rowDiv.appendChild(col3Div);
-        col3Div.appendChild(priceDiv);
+  const quantityLabel = document.createElement("label");
+  quantityLabel.setAttribute("for", "quantityDropdown");
+  quantityLabel.textContent = "Quantity:";
 
-        return containerDiv;
-      }
+  const quantityDropdown = document.createElement("select");
+  quantityDropdown.classList.add("form-control");
+  quantityDropdown.id = "quantityDropdown";
+  const quantityOptions = [1, 2, 3];
+  quantityOptions.forEach((option) => {
+    const optionElement = document.createElement("option");
+    optionElement.textContent = option;
+    quantityDropdown.appendChild(optionElement);
+  });
+
+  const col3Div = document.createElement("div");
+  col3Div.classList.add("col", "text-right");
+
+  const priceDiv = document.createElement("div");
+  priceDiv.classList.add("price");
+  priceDiv.textContent = "Price: ";
+  const boldSpan = document.createElement("span");
+  boldSpan.classList.add("font-weight-bold");
+  boldSpan.textContent = itemPrice;
+  priceDiv.appendChild(boldSpan);
+
+  // Append all elements to their respective parent elements
+  containerDiv.appendChild(borderDiv);
+  borderDiv.appendChild(rowDiv);
+  rowDiv.appendChild(col1Div);
+  col1Div.appendChild(innerRowDiv);
+  innerRowDiv.appendChild(itemDiv);
+  innerRowDiv.appendChild(deleteRowDiv);
+  deleteRowDiv.appendChild(deleteLink);
+  rowDiv.appendChild(col2Div);
+  col2Div.appendChild(formGroupDiv);
+  formGroupDiv.appendChild(quantityLabel);
+  formGroupDiv.appendChild(quantityDropdown);
+  rowDiv.appendChild(col3Div);
+  col3Div.appendChild(priceDiv);
+
+  return containerDiv;
+}
+
     </script>
   </body>
   <script src="script.js"></script>
