@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="menu_style.css">
+    <script src="firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+    
     <title>Menu</title>
-
+  
 </head>
 <br>
 <header>
@@ -78,8 +81,8 @@
         <!-- Item 1 -->
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 1">
-            <h3>Item 1 Name</h3>
-            <button class="add-to-cart-btn">Add to Cart</button>
+            <h3>Maggie</h3>
+            <button class="add-to-cart-btn" onclick="addToCart('Item 1 Name', 'Item 1 Price')">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
 
@@ -87,7 +90,7 @@
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 2">
             <h3>Item 2 Name</h3>
-            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addToCart('Item 1 Name', 'Item 1 Price')">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
 
@@ -95,7 +98,7 @@
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 3">
             <h3>Item 3 Name</h3>
-            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addToCart('Item 1 Name', 'Item 1 Price')">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
 
@@ -103,7 +106,7 @@
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 4">
             <h3>Item 4 Name</h3>
-            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addToCart('Item 1 Name', 'Item 1 Price')">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
 
@@ -111,7 +114,7 @@
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 5">
             <h3>Item 5 Name</h3>
-            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addToCart('Item 1 Name', 'Item 1 Price')">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
 
@@ -119,7 +122,7 @@
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 6">
             <h3>Item 6 Name</h3>
-            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addToCart('Item 1 Name', 'Item 1 Price')">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
 
@@ -127,7 +130,7 @@
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 7">
             <h3>Item 7 Name</h3>
-            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addToCart('Item 1 Name', 'Item 1 Price')">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
 
@@ -135,7 +138,7 @@
         <div class="menu-item">
             <img src="images/food3.jpeg" alt="Item 8">
             <h3>Item 8 Name</h3>
-            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addToCart('Item 1 Name', 'Item 1 Price')">Add to Cart</button>
             <button class="add-to-favorite">Add to Favorite</button>
         </div>
     </main>
@@ -166,8 +169,58 @@
           <label>Accessibility Statement</label>
         </div>
       </footer>
+      <script type="module">
+        // Initialize Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+    
+        // Your Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyAe8YMj8gHoIBbarYoHo3EaSJ27ADN1gAQ",
+          authDomain: "cs422actual.firebaseapp.com",
+          projectId: "cs422actual",
+          storageBucket: "cs422actual.appspot.com",
+          messagingSenderId: "732736778005",
+          appId: "1:732736778005:web:ec34eaa2adeea98e90431c",
+          measurementId: "G-Y5RWRMPES1"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    const itemName = event.target.parentNode.querySelector('h3').textContent;
+    
+                    // Add the item to the cart in Firestore
+                    alert("Item added to cart");
+                    addItemToCart(itemName);
+                });
+            });
+        });
+    
+        async function addItemToCart(itemName) {
+            try {
+                // Add the item to the 'cart' collection in Firestore
+                await addDoc(collection(db, "cart"), {
+                    item: itemName
+          
+                });
+                // Redirect to cart page
+          
+            } catch (e) {
+                console.error("Error adding item to Firebase: ", e);
+            }
+        }
+    </script>
+
 </body>
     <script src="script.js"></script>
-    <script src="carousel.js"></script>
     <script src="carouselRotation.js"></script>
 </html>
