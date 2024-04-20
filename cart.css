@@ -748,4 +748,42 @@ footer ul li a {
     margin-left: 10px;
     margin-right: -600px;
   }
+    footer {
+    background-color: #333;
+    color: #fff;
+
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+
+  footer ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  footer ul li {
+    margin-bottom: 10px;
+  }
+
+  footer ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .option2 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(201, 197, 197, 0.381);
+    width: 100vw;
+    text-align: center;
+    border: 2px solid black;
+  }
+  .option1 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(109, 104, 104, 0.329);
+    width: 100vw;
+    text-align: center;
+  }
   }
