@@ -111,7 +111,7 @@ footer ul li a {
 }
 
 .dark-mode-switch input[type="checkbox"] {
-    display: none;
+    display: block;
 }
 
 .dark-mode-switch .toggle {
@@ -238,12 +238,6 @@ label {
 
 }
 
-input, select {
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
 button {
     background-color: #f7f2f2;
