@@ -71,10 +71,10 @@ function displayReservationInfo() {
   const reservationInfo = document.getElementById('reservation-info');
   reservationInfo.innerHTML = `
       <h2>Reservation Information</h2>
-      <p>Date: ${getDate(selectedDate)}</p>
-      <p>Time: ${getTime(selectedTime)}</p>
-      <button onclick="changeReservation()">Change</button>
-      <button onclick="backToMenu()">Back to Menu</button>
+      <p style="font-size: 22px;"><strong>Date: ${getDate(selectedDate)} </strong></p>
+      <p style="font-size: 22px;"><strong>Time: ${getTime(selectedTime)}</strong></p>
+      <button style="background-color: #41373b; color: #fff;" onclick="changeReservation()">Change Reservation</button>
+      <button style="background-color: #41373b; color: #fff;" onclick="backToMenu()">Home</button>
   `;
 }
 

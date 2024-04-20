@@ -215,7 +215,8 @@ footer ul li a {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-	background-color: lightgrey;
+    color:white;
+	  background-color: #41373b;
 }
 
 .reservation-info {
