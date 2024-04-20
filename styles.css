@@ -880,4 +880,16 @@ input:checked + .slider:before {
 .hero {
   margin-top: 50px;
 }
+.dark-mode header {
+  border-bottom: 2px solid white;
+}
+.dark-mode .order-now {
+  background-color: rgb(82, 82, 82);
+}
+.dark-mode .reserve {
+  background-color: rgb(82, 82, 82);
+}
+.dark-mode .login-container {
+  border: 2px solid white;
+}
 }

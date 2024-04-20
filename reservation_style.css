@@ -632,6 +632,12 @@ button:hover {
   .dark-mode .menu-toggle div {
     background-color: white;
   }
+  .dark-mode .confirm-button {
+    background-color: rgb(82, 82, 82);
+  }
+  .dark-mode header {
+    border-bottom: 2px solid white;
+  }
   .dark-mode .menuoption {
     border: 1px solid rgb(255, 255, 255);
     border-left: none;
