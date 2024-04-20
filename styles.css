@@ -81,13 +81,12 @@ nav {
 }
 
 footer {
-  background-color: #3333331a;
+  background-color: #333;
   color: #fff;
   text-align: center;
+  position: relative;
   bottom: 0;
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 footer ul {
