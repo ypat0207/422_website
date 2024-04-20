@@ -755,8 +755,9 @@ footer ul li a {
     background-color: #333;
     color: #fff;
     text-align: center;
-    position: relative;
+    position:relative;
     bottom: 0;
+ 
     width: 100%;
   }
 

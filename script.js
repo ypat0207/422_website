@@ -72,3 +72,4 @@ function initDarkModeSwitch() {
 document.addEventListener("DOMContentLoaded", function() {
   initDarkModeSwitch();
 });
+

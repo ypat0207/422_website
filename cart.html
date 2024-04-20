@@ -175,6 +175,13 @@
 
         // Display total price dynamically in the HTML
         document.querySelector('.total-price').textContent = `$${totalPrice.toFixed(2)}`;
+        if (itemCount > 0) {
+      // If there are items, set the footer's position to relative
+          document.querySelector('.footerClass').style.position = 'relative';
+        } else {
+          // If there are no items, set the footer's position to its default position
+          document.querySelector('.footerClass').style.position = 'fixed';
+        }
           querySnapshot.forEach((doc) => {
             const itemPic = doc.data().image
             const itemName = doc.data().item;
@@ -307,9 +314,12 @@ imgElement.style.height = "80px";
   col3Div.appendChild(priceDiv);
 
   return containerDiv;
+
+  
 }
 
     </script>
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
+  
 </html>
