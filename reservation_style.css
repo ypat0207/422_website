@@ -181,7 +181,8 @@ footer ul li a {
 
 .reservation-container {
     display: flex;
-    border: 1px solid black;
+   
+    margin-top: 100px;
 }
 
 .date-container, .time-container {
@@ -233,7 +234,7 @@ form {
 label {
     margin-top: 10px;
     color: #ffffff;
-    font-weight: bold;
+
 }
 
 input, select {

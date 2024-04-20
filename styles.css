@@ -533,7 +533,8 @@ footer ul li a {
     background-color: #333;
     color: #fff;
     text-align: center;
-    position: relative;
+    position: absolute;
+    bottom: 0;
     width: 100%;
   }
 
@@ -869,5 +870,8 @@ input:checked + .slider:before {
   margin-top: 80px;
   margin-left: 10px;
   margin-right: -600px;
+}
+.hero {
+  margin-top: 50px;
 }
 }
