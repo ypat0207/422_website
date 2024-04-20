@@ -808,6 +808,9 @@ input:checked + .slider:before {
   border-top: none;
   border-right: none;
 }
+.dark-mode .shopping-cart-icon img {
+  content: url(images/whitecart.png);
+}
 .dark-mode .menuoption1 {
   border: 1px solid rgb(255, 255, 255);
   border-left: none;

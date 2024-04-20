@@ -629,7 +629,9 @@ button:hover {
   .dark-mode .menu {
     background-color: #000;
   }
-  
+  .dark-mode .shopping-cart-icon img {
+    content: url(images/whitecart.png);
+  }
   .dark-mode .menu li a {
     color: #fff;
   }

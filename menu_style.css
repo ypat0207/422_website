@@ -601,6 +601,9 @@ footer ul li a {
   .dark-mode .menu-toggle div {
     background-color: white;
   }
+  .dark-mode .shopping-cart-icon img {
+    content: url(images/whitecart.png);
+  }
   .dark-mode .menuoption {
     border: 1px solid rgb(255, 255, 255);
     border-left: none;
