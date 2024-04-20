@@ -594,7 +594,15 @@ footer ul li a {
   .dark-mode .menu {
     background-color: #000;
   }
-  
+  .dark-mode .menu-item {
+    border: 2px solid white;
+  }
+  .dark-mode .menu-item h3 {
+   color: white;
+  }
+  .dark-mode header {
+    border-bottom: 2px solid white;
+  }
   .dark-mode .menu li a {
     color: #fff;
   }
