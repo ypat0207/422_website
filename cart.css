@@ -459,7 +459,7 @@ footer ul li a {
   
     /* Style for the dropdown menu */
     .menu {
-      background-image: url(images/output-onlinepngtools.png);
+      background-image: url(images/luxa.org-opacity-changed-background.png);
       position: fixed;
       top: 0;
       left: 0;
@@ -558,7 +558,7 @@ footer ul li a {
     }
   
     body {
-      background-image: url(images/output-onlinepngtools.png);
+      background-image: url(images/luxa.org-opacity-changed-background.png);
     }
     .shopping-cart-icon img {
       height: 25px;
@@ -612,11 +612,12 @@ footer ul li a {
   
   /* Switch styles */
   .switch {
-    position: fixed;
+    position: absolute;
     display: inline-block;
-    width: 36px;
+    width: 40px;
     height: 20px;
     right: 20px;
+    top: 245px;
   }
   
   .slider {
@@ -626,7 +627,7 @@ footer ul li a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #000000;
     -webkit-transition: 0.4s;
     transition: 0.4s;
     border-radius: 20px;
@@ -646,11 +647,11 @@ footer ul li a {
   }
   
   input:checked + .slider {
-    background-color: #2196f3;
+    background-color: #1eff00;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196f3;
+    box-shadow: 0 0 1px #00ff2a;
   }
   
   input:checked + .slider:before {
