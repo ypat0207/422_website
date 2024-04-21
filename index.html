@@ -8,13 +8,45 @@
   </head>
 
   <body>
-    <header>
+    <div class="headerpc">
+      <a href="index.html"><img class="logoimg" src="images/noimage.png" alt=""></a>
+        <nav>
+            <div class="menu-toggle">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="menu-items">
+                <li><a class="buttons" href="index.html">Home</a></li>
+                <li><a class="buttons" href="menu.html">Menu</a></li>
+                <li><a class="buttons" href="#">Specials</a></li>
+                <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
+                <li><a class="buttons" href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+        <div class = "darkmodeDiv">
+          <div class="dark-mode-switch">
+            <label>Dark Mode</label>
+              <input type="checkbox" id="darkModeToggle">
+              <label for="darkModeToggle" class="toggle"></label>
+          </div>
+          <br>
+          <div class="user-actions">
+              <button>Login</button>
+              <button>Sign Up</button>
+              <div class="shopping-cart">
+                  <a href="cart.html"><img src="images/cart.png" alt="Shopping Cart"></a>
+              </div>
+        </div>
+      </div>
+    </div>
+    <header class="mobileheader">
       <div class="logo-container">
         <a href="index.html"
           ><img class="logoimg" src="images/logo.jpeg" alt=""
         /></a>
       </div>
-      <nav>
+      <nav class="nav">
         <div class="menu-toggle" onclick="toggleMenu()">
           <div></div>
           <div></div>
@@ -75,13 +107,13 @@
     <div class="carousel">
       <div class="carousel-inner">
         <div class="carousel-item">
-          <img src="images/food3.jpeg" alt="Carousel Image 1" />
+          <img src="images/piechart.png" alt="Carousel Image 1" />
         </div>
         <div class="carousel-item">
           <img src="images/piechart.png" alt="Carousel Image 2" />
         </div>
         <div class="carousel-item">
-          <img src="images/food3.jpeg" alt="Carousel Image 3" />
+          <img src="images/piechart.png" alt="Carousel Image 3" />
         </div>
       </div>
       <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
@@ -129,3 +161,9 @@
     <script src="carouselRotation.js"></script>
   </body>
 </html>
+
+
+
+
+
+
