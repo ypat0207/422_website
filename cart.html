@@ -78,7 +78,7 @@
 
     <div id="cart-container"></div>
 
-    <div class="container">
+    <div class="container cartcontainer">
       <div class="border">
         <div class="row border">
           <div class="col">
@@ -92,10 +92,11 @@
             <div class="input-group">
               <input
                 type="text"
+                id="promoCodeInput"
                 class="form-control"
-                placeholder="Enter promo code"
+                placeholder="Enter promo code (SAVE10)"
               />
-              <button class="btn" type="button">Apply</button>
+              <button class="btn" id="applyPromobtn" type="button">Apply</button>
             </div>
           </div>
         </div>
@@ -197,6 +198,8 @@
           console.error("Error getting documents: ", error);
         }
       });
+
+
 
     
       // Function to create HTML structure for each cart item
@@ -312,14 +315,42 @@ imgElement.style.height = "80px";
   formGroupDiv.appendChild(quantityDropdown);
   rowDiv.appendChild(col3Div);
   col3Div.appendChild(priceDiv);
+  
+ 
+    const submitBtn = document.querySelector('.submit-btn');
+
+    submitBtn.addEventListener('click', async () => {
+      // Create a confirmation popup
+      const confirmation = confirm("Your order has been submitted. Thank you!");
+
+      await deleteDoc(doc(db, "cart", itemId));
+      containerDiv.remove();
+      window.location.href = "index.html";
+    });
 
   return containerDiv;
-
-  
 }
+const promoCodeInput = document.getElementById('promoCodeInput');
+const applyPromoBtn = document.getElementById('applyPromobtn');
 
-    </script>
+// Add an event listener to the apply button
+applyPromoBtn.addEventListener('click', () => {
+  const promoCode = promoCodeInput.value.trim();
+  if (promoCode === 'SAVE10') {
+    // Update the total price with the $10 discount
+    const totalPriceElement = document.querySelector('.total-price');
+    let totalPrice = parseFloat(totalPriceElement.textContent.replace('$', ''));
+    totalPrice -= 10;
+    totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+    alert('Promo code applied successfully!');
+  } else {
+    alert('Invalid promo code.');
+  }
+});
+
+</script>
+ 
     <script src="script.js"></script>
   </body>
-  
+
 </html>

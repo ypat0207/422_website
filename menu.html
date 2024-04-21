@@ -170,12 +170,10 @@
         </div>
       </footer>
       <script type="module">
-        // Initialize Firebase
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
     
-        // Your Firebase configuration
         const firebaseConfig = {
           apiKey: "AIzaSyAe8YMj8gHoIBbarYoHo3EaSJ27ADN1gAQ",
           authDomain: "cs422actual.firebaseapp.com",
@@ -198,8 +196,7 @@
                 button.addEventListener('click', function (event) {
                   const itemName = event.target.parentNode.querySelector('h3').textContent;
                   const itemImage = event.target.parentNode.querySelector('img').src;
-    
-                    // Add the item to the cart in Firestore
+
                     alert("Item added to cart");
                     addItemToCart(itemName, itemImage);
                 });
@@ -208,12 +205,10 @@
     
         async function addItemToCart(itemName, itemImage) {
             try {
-                // Add the item to the 'cart' collection in Firestore
                 await addDoc(collection(db, "cart"), {
                     item: itemName,
                     image: itemImage
                 });
-                // Redirect to cart page
           
             } catch (e) {
                 console.error("Error adding item to Firebase: ", e);
