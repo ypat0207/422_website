@@ -77,6 +77,9 @@
         <label class ="MenuText">Menu</label>
       </div>
     
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+    </div>
 
     <main class="menu-container">
         <!-- Item 1 -->
@@ -219,6 +222,23 @@
 <script>
   document.getElementById("backButton").addEventListener("click", function() {
       window.history.back();
+  });
+</script>
+
+<script>
+  var menuItems = document.querySelectorAll('.menu-item');
+
+  document.getElementById('searchInput').addEventListener('input', function() {
+      var input = this.value.toLowerCase();
+
+      menuItems.forEach(function(item) {
+          var itemName = item.querySelector('h3').textContent.toLowerCase();
+          if (itemName.includes(input)) {
+              item.style.display = 'block';
+          } else {
+              item.style.display = 'none';
+          }
+      });
   });
 </script>
 </body>
