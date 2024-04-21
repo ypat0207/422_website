@@ -8,6 +8,7 @@
   </head>
   <body>
     <header class="mobileheader">
+      <a id="backButton" class="backbutton"> < Back </a>
       <div class="logo-container">
         <a href="index.html"
           ><img class="logoimg" src="images/logo.jpeg" alt=""
@@ -200,11 +201,10 @@
             <span class="star" data-value="4">&#9733;</span>
             <span class="star" data-value="5">&#9733;</span>
           </div>
-        
+
           <div class="buttonDiv">
             <button class="submitBtn">Submit Review</button>
           </div>
-         
         </div>
       </div>
       <div class="container">
@@ -228,5 +228,10 @@
     </div>
     <script src="rating.js"></script>
     <script src="script.js"></script>
+    <script>
+      document.getElementById("backButton").addEventListener("click", function() {
+          window.history.back();
+      });
+    </script>
   </body>
 </html>

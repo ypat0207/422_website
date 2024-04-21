@@ -1,129 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="reservation_style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reservation_style.css" />
 
-		<title>Reservation Page</title>
-	</head>
-	<body>
-		<header>
-			<div class="logo-container">
-			  <a href="index.html"
-				><img class="logoimg" src="images/logo.jpeg" alt=""
-			  /></a>
-			</div>
-			<nav>
-			  <div class="menu-toggle" onclick="toggleMenu()">
-				<div></div>
-				<div></div>
-				<div></div>
-			  </div>
-			  <a href="cart.html" class="shopping-cart-icon">
-				<img src="images/cart.png" alt="Shopping Cart" />
-			  </a>
-			  
-			  <ul id="menu" class="hidden menu">
-				<div class="menuOuter">
-				<div class="menuoption1">
-				<li><a class="buttons" href="index.html">Home</a></li>
-				</div>
-				<div class="menuoption">
-				<li><a class="buttons" href="menu.html">Menu</a></li>
-				</div>
-				<div class="menuoption1">
-				<li><a class="buttons" href="#">Specials</a></li>
-				</div>
-				<div class="menuoption">
-				<li><a class="buttons" href="reservation.html">Reserve Now</a></li>
-				</div>
-				<div class="darkModeContainer menuoption1">
-				<li><a class="buttons" href="#">Dark mode</a></li>
-				<li>
-					<label class="switch">
-						<input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()" />
-						<span class="slider round"></span>
-					</label>
-				</li>
-	  
-			  </div>
-			  <div class="menuoption">
-				<li><a class="buttons" href="Login.html">Log In</a></li>
-			  </div>
-			  <div class="menuoption1">
-				<li><a class="buttons" href="Login.html">Sign Up</a></li>
-			  </div>
-			  <div class="menuoption">
-				<li><a class="buttons" href="#">Contact Us</a></li>
-			  </div>
-			  <div class="menuoption1">
-				<li><a class="buttons" href="#">About Us</a></li>
-			  </div>
-			  <div class="ratingReview">
-				<li><a class="buttons" href="ratingandreview.html">Rating & Review</a></li>
-			  </div>
-			
-			</div>
-	  
-			  </ul>
-			  
-			</nav>
-		  </header>
+    <title>Reservation Page</title>
+  </head>
+  <body>
+    <header>
+		<a id="backButton" class="backbutton"> < Back </a>
+      <div class="logo-container">
+        <a href="index.html"
+          ><img class="logoimg" src="images/logo.jpeg" alt=""
+        /></a>
+      </div>
+      <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <a href="cart.html" class="shopping-cart-icon">
+          <img src="images/cart.png" alt="Shopping Cart" />
+        </a>
 
-		<div class="container">
-			<div class="reservation-container" id="reservation-container">
-				<div class="date-container" id="date-container">
-					<h2>Select Date</h2>
-					<div class="date-box" id="date-box-1">May 5</div>
-					<div class="date-box" id="date-box-2">May 6</div>
-					<div class="date-box" id="date-box-3">May 7</div>
-					<div class="date-box" id="date-box-4">May 8</div>
-					<div class="date-box" id="date-box-5">May 9</div>
-				</div>
+        <ul id="menu" class="hidden menu">
+          <div class="menuOuter">
+            <div class="menuoption1">
+              <li><a class="buttons" href="index.html">Home</a></li>
+            </div>
+            <div class="menuoption">
+              <li><a class="buttons" href="menu.html">Menu</a></li>
+            </div>
+            <div class="menuoption1">
+              <li><a class="buttons" href="#">Specials</a></li>
+            </div>
+            <div class="menuoption">
+              <li>
+                <a class="buttons" href="reservation.html">Reserve Now</a>
+              </li>
+            </div>
+            <div class="darkModeContainer menuoption1">
+              <li><a class="buttons" href="#">Dark mode</a></li>
+              <li>
+                <label class="switch">
+                  <input
+                    type="checkbox"
+                    id="darkModeSwitch"
+                    onclick="toggleDarkMode()"
+                  />
+                  <span class="slider round"></span>
+                </label>
+              </li>
+            </div>
+            <div class="menuoption">
+              <li><a class="buttons" href="Login.html">Log In</a></li>
+            </div>
+            <div class="menuoption1">
+              <li><a class="buttons" href="Login.html">Sign Up</a></li>
+            </div>
+            <div class="menuoption">
+              <li><a class="buttons" href="#">Contact Us</a></li>
+            </div>
+            <div class="menuoption1">
+              <li><a class="buttons" href="#">About Us</a></li>
+            </div>
+            <div class="ratingReview">
+              <li>
+                <a class="buttons" href="ratingandreview.html"
+                  >Rating & Review</a
+                >
+              </li>
+            </div>
+          </div>
+        </ul>
+      </nav>
+    </header>
 
-				<div class="time-container" id="time-container">
-					<h2>Select Time</h2>
-					<div class="time-box" id="time-box-1">11:00 AM - 12:00 PM</div>
-					<div class="time-box" id="time-box-2">12:00 PM - 01:00 PM</div>
-					<div class="time-box" id="time-box-3">01:00 PM - 02:00 PM</div>
-					<div class="time-box" id="time-box-4">02:00 PM - 03:00 PM</div>
-				</div>
-				<button class="confirm-button" onclick="confirmReservation()">Confirm Reservation</button>			
-			</div>
+    <div class="container">
+      <div class="reservation-container" id="reservation-container">
+        <div class="date-container" id="date-container">
+          <h2>Select Date</h2>
+          <div class="date-box" id="date-box-1">May 5</div>
+          <div class="date-box" id="date-box-2">May 6</div>
+          <div class="date-box" id="date-box-3">May 7</div>
+          <div class="date-box" id="date-box-4">May 8</div>
+          <div class="date-box" id="date-box-5">May 9</div>
+        </div>
 
-			<div class="reservation-info" id="reservation-info"></div>
+        <div class="time-container" id="time-container">
+          <h2>Select Time</h2>
+          <div class="time-box" id="time-box-1">11:00 AM - 12:00 PM</div>
+          <div class="time-box" id="time-box-2">12:00 PM - 01:00 PM</div>
+          <div class="time-box" id="time-box-3">01:00 PM - 02:00 PM</div>
+          <div class="time-box" id="time-box-4">02:00 PM - 03:00 PM</div>
+        </div>
+        <button class="confirm-button" onclick="confirmReservation()">
+          Confirm Reservation
+        </button>
+      </div>
 
-		</div>
+      <div class="reservation-info" id="reservation-info"></div>
+    </div>
 
-		<footer class="footerClass">
-			<div class="option1">
-			  <label>Contact Us</label>
-			</div>
-			<div class="option2">
-			  <label>Nutritional & Allergens</label>
-			</div>
-			<div class="option1">
-			  <label>Careers</label>
-			</div>
-			<div class="option2">
-			  <label>FAQs</label>
-			</div>
-			<div class="option1">
-			  <label>Gift Cards & Offers</label>
-			</div>
-			<div class="option2">
-			  <label>Legal & Privacy Notices</label>
-			</div>
-			<div class="option1">
-			  <label>Do Not Sell or Share My Personal Information</label>
-			</div>
-			<div class="option2">
-			  <label>Accessibility Statement</label>
-			</div>
-		  </footer>
+    <footer class="footerClass">
+      <div class="option1">
+        <label>Contact Us</label>
+      </div>
+      <div class="option2">
+        <label>Nutritional & Allergens</label>
+      </div>
+      <div class="option1">
+        <label>Careers</label>
+      </div>
+      <div class="option2">
+        <label>FAQs</label>
+      </div>
+      <div class="option1">
+        <label>Gift Cards & Offers</label>
+      </div>
+      <div class="option2">
+        <label>Legal & Privacy Notices</label>
+      </div>
+      <div class="option1">
+        <label>Do Not Sell or Share My Personal Information</label>
+      </div>
+      <div class="option2">
+        <label>Accessibility Statement</label>
+      </div>
+    </footer>
 
-		<script src="reservation.js"></script>
-		<script src="script.js"></script>
-	</body>
+    <script src="reservation.js"></script>
+    <script src="script.js"></script>
+	<script>
+		document.getElementById("backButton").addEventListener("click", function() {
+			window.history.back();
+		});
+	  </script>
+  </body>
 </html>

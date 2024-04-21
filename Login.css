@@ -758,12 +758,15 @@ button:hover {
     top: 30px;
   }
   .logo-container {
-    margin-left: 180px;
+    margin-left: 140px;
     margin-top: 20px;
   }
   .logoimg {
     height: 40px;
     width: 40px;
+  }
+  .backbutton {
+    margin-left: 20px;
   }
   /* Pagination Dots */
   .carousel-dots {

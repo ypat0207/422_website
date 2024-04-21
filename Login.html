@@ -6,12 +6,12 @@
     <title>Restaurant Website</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="Login.css" />
-  
   </head>
 
   <body>
     <!-- Your header code -->
     <header>
+      <a id="backButton" class="backbutton"> < Back </a>
       <div class="logo-container">
         <a href="index.html"
           ><img class="logoimg" src="images/logo.jpeg" alt=""
@@ -162,10 +162,17 @@
       </div>
     </div>
     <script>
-      document.getElementById('signInButton').addEventListener('click', function() {
-            window.location.href = 'index.html';
+      document
+        .getElementById("signInButton")
+        .addEventListener("click", function () {
+          window.location.href = "index.html";
         });
     </script>
   </body>
   <script src="script.js"></script>
+  <script>
+    document.getElementById("backButton").addEventListener("click", function() {
+        window.history.back();
+    });
+  </script>
 </html>

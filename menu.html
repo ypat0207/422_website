@@ -12,6 +12,7 @@
 </head>
 <br>
 <header>
+  <a id="backButton" class="backbutton"> < Back </a>
     <div class="logo-container">
       <a href="index.html"
         ><img class="logoimg" src="images/logo.jpeg" alt=""
@@ -215,7 +216,11 @@
             }
         }
     </script>
-
+<script>
+  document.getElementById("backButton").addEventListener("click", function() {
+      window.history.back();
+  });
+</script>
 </body>
     <script src="script.js"></script>
     <script src="carouselRotation.js"></script>

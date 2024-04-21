@@ -12,6 +12,7 @@
   </head>
   <body>
     <header>
+      <a id="backButton" class="backbutton"> < Back </a>
       <div class="logo-container">
         <a href="index.html"
           ><img class="logoimg" src="images/logo.jpeg" alt=""
@@ -349,7 +350,11 @@ applyPromoBtn.addEventListener('click', () => {
 });
 
 </script>
- 
+<script>
+  document.getElementById("backButton").addEventListener("click", function() {
+      window.history.back();
+  });
+</script>
     <script src="script.js"></script>
   </body>
 
