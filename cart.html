@@ -270,6 +270,12 @@
           try {
             await deleteDoc(doc(db, "cart", itemId));
             containerDiv.remove();
+            const totalPriceElement = document.querySelector(".total-price");
+          let totalPrice = parseFloat(
+            totalPriceElement.textContent.replace("$", "")
+          ); 
+          totalPrice -= 10;
+          totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
           } catch (error) {
             console.error("Error deleting document: ", error);
           }
