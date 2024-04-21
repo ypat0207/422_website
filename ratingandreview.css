@@ -191,8 +191,14 @@ body {
       width: 40px;
     }
    
-  
-  
+    .menuDiv {
+        text-align: center;
+        padding-top: 10px;
+    }
+    .MenuText {
+        font-weight: bolder;
+        font-size: 30px;
+    }
     .dark-mode {
     background-color: #222;
     color: #fff;
