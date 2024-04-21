@@ -203,6 +203,16 @@
         }
       });
 
+      const submitBtn = document.querySelector(".submit-btn");
+      submitBtn.addEventListener("click", async () => {
+        const confirmation = confirm("Your order has been submitted. Thank you!");
+          const querySnapshot = await getDocs(collection(db, "cart"));
+          querySnapshot.forEach(async (doc) => {
+            await deleteDoc(doc.ref);
+          window.location.href = "index.html";
+        });
+      });
+
       function createCartItemDiv(itemName, itemPrice, itemId, itemPic) {
         const containerDiv = document.createElement("div");
         containerDiv.classList.add("container");
@@ -306,18 +316,6 @@
         formGroupDiv.appendChild(quantityDropdown);
         rowDiv.appendChild(col3Div);
         col3Div.appendChild(priceDiv);
-
-        const submitBtn = document.querySelector(".submit-btn");
-
-        submitBtn.addEventListener("click", async () => {
-          const confirmation = confirm(
-            "Your order has been submitted. Thank you!"
-          );
-
-          await deleteDoc(doc(db, "cart", itemId));
-          containerDiv.remove();
-          window.location.href = "index.html";
-        });
 
         return containerDiv;
       }
