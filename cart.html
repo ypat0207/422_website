@@ -70,7 +70,11 @@
               <li><a class="buttons" href="#">About Us</a></li>
             </div>
             <div class="ratingReview">
-              <li><a class="buttons" href="ratingandreview.html">Rating & Review</a></li>
+              <li>
+                <a class="buttons" href="ratingandreview.html"
+                  >Rating & Review</a
+                >
+              </li>
             </div>
           </div>
         </ul>
@@ -83,7 +87,6 @@
       <div class="border">
         <div class="row border">
           <div class="col">
-            
             <div class="row">
               <div class="col">Total Price:</div>
               <div class="col text-right total-price">$0.00</div>
@@ -97,7 +100,9 @@
                 class="form-control"
                 placeholder="Enter promo code (SAVE10)"
               />
-              <button class="btn" id="applyPromobtn" type="button">Apply</button>
+              <button class="btn" id="applyPromobtn" type="button">
+                Apply
+              </button>
             </div>
           </div>
         </div>
@@ -135,7 +140,6 @@
       </div>
     </footer>
     <script type="module">
-
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
       import {
@@ -163,180 +167,185 @@
       document.addEventListener("DOMContentLoaded", async function () {
         try {
           const querySnapshot = await getDocs(collection(db, "cart"));
-          let totalPrice = 0; 
+          let totalPrice = 0;
           let itemCount = 0;
           querySnapshot.forEach((doc) => {
-      itemCount++; 
-        });
-
-        totalPrice = itemCount * 10; 
-
-        document.querySelector('.total-price').textContent = `$${totalPrice.toFixed(2)}`;
-        if (itemCount > 0) {
-          document.querySelector('.footerClass').style.position = 'relative';
-        } else {
-          document.querySelector('.footerClass').style.position = 'fixed';
-        }
-          querySnapshot.forEach((doc) => {
-            const itemPic = doc.data().image
-            const itemName = doc.data().item;
-            const itemPrice = "$10.00"; 
-            const itemId = doc.id; 
-            const itemDiv = createCartItemDiv(itemName, itemPrice, itemId, itemPic);
-            document.getElementById("cart-container").appendChild(itemDiv);
-            const quantityDropdown = itemDiv.querySelector(".quantity-dropdown");
-            
+            itemCount++;
           });
-        
+
+          totalPrice = itemCount * 10;
+
+          document.querySelector(
+            ".total-price"
+          ).textContent = `$${totalPrice.toFixed(2)}`;
+          if (itemCount > 0) {
+            document.querySelector(".footerClass").style.position = "relative";
+          } else {
+            document.querySelector(".footerClass").style.position = "fixed";
+          }
+          querySnapshot.forEach((doc) => {
+            const itemPic = doc.data().image;
+            const itemName = doc.data().item;
+            const itemPrice = "$10.00";
+            const itemId = doc.id;
+            const itemDiv = createCartItemDiv(
+              itemName,
+              itemPrice,
+              itemId,
+              itemPic
+            );
+            document.getElementById("cart-container").appendChild(itemDiv);
+            const quantityDropdown =
+              itemDiv.querySelector(".quantity-dropdown");
+          });
         } catch (error) {
           console.error("Error getting documents: ", error);
         }
       });
 
-
       function createCartItemDiv(itemName, itemPrice, itemId, itemPic) {
-  const containerDiv = document.createElement("div");
-  containerDiv.classList.add("container");
+        const containerDiv = document.createElement("div");
+        containerDiv.classList.add("container");
 
-  const borderDiv = document.createElement("div");
-  borderDiv.classList.add("border");
-  borderDiv.style.borderColor = "black";
-  borderDiv.style.borderWidth = "2px"
+        const borderDiv = document.createElement("div");
+        borderDiv.classList.add("border");
+        borderDiv.style.borderColor = "grey";
+        borderDiv.style.borderWidth = "2px";
 
-  const rowDiv = document.createElement("div");
-  rowDiv.classList.add("row", "border");
-  rowDiv.style.borderColor = "black";
-  rowDiv.style.borderWidth = "2px"
+        const rowDiv = document.createElement("div");
+        rowDiv.classList.add("row", "border");
+        rowDiv.style.borderColor = "grey";
+        rowDiv.style.borderWidth = "2px";
 
-  const col1Div = document.createElement("div");
-  col1Div.classList.add("col");
-  
+        const col1Div = document.createElement("div");
+        col1Div.classList.add("col");
 
-  const innerRowDiv = document.createElement("div");
-  innerRowDiv.classList.add("row");
+        const innerRowDiv = document.createElement("div");
+        innerRowDiv.classList.add("row");
 
-  const itemDiv = document.createElement("div");
-  itemDiv.classList.add("item");
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("item");
 
-  const imgElement = document.createElement("img");
-  imgElement.src = itemPic;
-  imgElement.alt = itemName;
-  imgElement.classList.add("item-image");
-  imgElement.style.width = "120px";
-imgElement.style.height = "80px";
+        const imgElement = document.createElement("img");
+        imgElement.src = itemPic;
+        imgElement.alt = itemName;
+        imgElement.classList.add("item-image");
+        imgElement.style.width = "120px";
+        imgElement.style.height = "80px";
 
-  itemDiv.appendChild(imgElement);
-  const itemNameSpan = document.createElement("span");
-  itemNameSpan.textContent = itemName;
-  itemNameSpan.style.position = "absolute";
-  itemNameSpan.style.marginLeft = "30px";
-  itemNameSpan.style.marginTop = "30px";
-  itemNameSpan.style.fontSize = "25px";
-  itemNameSpan.style.fontWeight = "bolder";
+        itemDiv.appendChild(imgElement);
+        const itemNameSpan = document.createElement("span");
+        itemNameSpan.textContent = itemName;
+        itemNameSpan.style.position = "absolute";
+        itemNameSpan.style.marginLeft = "30px";
+        itemNameSpan.style.marginTop = "30px";
+        itemNameSpan.style.fontSize = "25px";
+        itemNameSpan.style.fontWeight = "bolder";
+        itemNameSpan.style.maxWidth = "165px";
 
-  itemDiv.appendChild(itemNameSpan);
+        itemDiv.appendChild(itemNameSpan);
 
-  const deleteRowDiv = document.createElement("div");
-  deleteRowDiv.classList.add("row");
+        const deleteRowDiv = document.createElement("div");
+        deleteRowDiv.classList.add("row");
 
-  const deleteLink = document.createElement("a");
-  deleteLink.classList.add("text-danger");
-  deleteLink.textContent = "Delete";
-  deleteLink.style.position = "absolute";
-  deleteLink.style.right = "55px";
-  deleteLink.href = "#";
-  deleteLink.addEventListener("click", async () => {
-    try {
+        const deleteLink = document.createElement("a");
+        deleteLink.classList.add("text-danger");
+        deleteLink.textContent = "Delete";
+        deleteLink.style.position = "absolute";
+        deleteLink.style.right = "55px";
+        deleteLink.href = "#";
+        deleteLink.addEventListener("click", async () => {
+          try {
+            await deleteDoc(doc(db, "cart", itemId));
+            containerDiv.remove();
+          } catch (error) {
+            console.error("Error deleting document: ", error);
+          }
+        });
 
-    await deleteDoc(doc(db, "cart", itemId));
-    containerDiv.remove();
-    
-  
-    } catch (error) {
-      console.error("Error deleting document: ", error);
-    }
-  });
+        const col2Div = document.createElement("div");
+        col2Div.classList.add("col");
 
-  const col2Div = document.createElement("div");
-  col2Div.classList.add("col");
+        const formGroupDiv = document.createElement("div");
+        formGroupDiv.classList.add("form-group");
 
-  const formGroupDiv = document.createElement("div");
-  formGroupDiv.classList.add("form-group");
+        const quantityLabel = document.createElement("label");
+        quantityLabel.setAttribute("for", "quantityDropdown");
+        quantityLabel.textContent = "Quantity:";
 
-  const quantityLabel = document.createElement("label");
-  quantityLabel.setAttribute("for", "quantityDropdown");
-  quantityLabel.textContent = "Quantity:";
+        const quantityDropdown = document.createElement("select");
+        quantityDropdown.classList.add("form-control");
+        quantityDropdown.id = "quantityDropdown";
+        const quantityOptions = [1, 2, 3];
+        quantityOptions.forEach((option) => {
+          const optionElement = document.createElement("option");
+          optionElement.textContent = option;
+          quantityDropdown.appendChild(optionElement);
+        });
 
-  const quantityDropdown = document.createElement("select");
-  quantityDropdown.classList.add("form-control");
-  quantityDropdown.id = "quantityDropdown";
-  const quantityOptions = [1, 2, 3];
-  quantityOptions.forEach((option) => {
-    const optionElement = document.createElement("option");
-    optionElement.textContent = option;
-    quantityDropdown.appendChild(optionElement);
-  });
+        const col3Div = document.createElement("div");
+        col3Div.classList.add("col", "text-right");
 
-  const col3Div = document.createElement("div");
-  col3Div.classList.add("col", "text-right");
+        const priceDiv = document.createElement("div");
+        priceDiv.classList.add("price");
+        priceDiv.textContent = "Price: ";
+        const boldSpan = document.createElement("span");
+        boldSpan.classList.add("font-weight-bold");
+        boldSpan.textContent = itemPrice;
+        priceDiv.appendChild(boldSpan);
+        containerDiv.appendChild(borderDiv);
+        borderDiv.appendChild(rowDiv);
+        rowDiv.appendChild(col1Div);
+        col1Div.appendChild(innerRowDiv);
+        innerRowDiv.appendChild(itemDiv);
+        innerRowDiv.appendChild(deleteRowDiv);
+        deleteRowDiv.appendChild(deleteLink);
+        rowDiv.appendChild(col2Div);
+        col2Div.appendChild(formGroupDiv);
+        formGroupDiv.appendChild(quantityLabel);
+        formGroupDiv.appendChild(quantityDropdown);
+        rowDiv.appendChild(col3Div);
+        col3Div.appendChild(priceDiv);
 
-  const priceDiv = document.createElement("div");
-  priceDiv.classList.add("price");
-  priceDiv.textContent = "Price: ";
-  const boldSpan = document.createElement("span");
-  boldSpan.classList.add("font-weight-bold");
-  boldSpan.textContent = itemPrice;
-  priceDiv.appendChild(boldSpan);
-  containerDiv.appendChild(borderDiv);
-  borderDiv.appendChild(rowDiv);
-  rowDiv.appendChild(col1Div);
-  col1Div.appendChild(innerRowDiv);
-  innerRowDiv.appendChild(itemDiv);
-  innerRowDiv.appendChild(deleteRowDiv);
-  deleteRowDiv.appendChild(deleteLink);
-  rowDiv.appendChild(col2Div);
-  col2Div.appendChild(formGroupDiv);
-  formGroupDiv.appendChild(quantityLabel);
-  formGroupDiv.appendChild(quantityDropdown);
-  rowDiv.appendChild(col3Div);
-  col3Div.appendChild(priceDiv);
-  
- 
-    const submitBtn = document.querySelector('.submit-btn');
+        const submitBtn = document.querySelector(".submit-btn");
 
-    submitBtn.addEventListener('click', async () => {
-      const confirmation = confirm("Your order has been submitted. Thank you!");
+        submitBtn.addEventListener("click", async () => {
+          const confirmation = confirm(
+            "Your order has been submitted. Thank you!"
+          );
 
-      await deleteDoc(doc(db, "cart", itemId));
-      containerDiv.remove();
-      window.location.href = "index.html";
-    });
+          await deleteDoc(doc(db, "cart", itemId));
+          containerDiv.remove();
+          window.location.href = "index.html";
+        });
 
-  return containerDiv;
-}
-const promoCodeInput = document.getElementById('promoCodeInput');
-const applyPromoBtn = document.getElementById('applyPromobtn');
+        return containerDiv;
+      }
+      const promoCodeInput = document.getElementById("promoCodeInput");
+      const applyPromoBtn = document.getElementById("applyPromobtn");
 
-applyPromoBtn.addEventListener('click', () => {
-  const promoCode = promoCodeInput.value.trim();
-  if (promoCode === 'SAVE10') {
-    const totalPriceElement = document.querySelector('.total-price');
-    let totalPrice = parseFloat(totalPriceElement.textContent.replace('$', ''));
-    totalPrice -= 10;
-    totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
-    alert('Promo code applied successfully!');
-  } else {
-    alert('Invalid promo code.');
-  }
-});
-
-</script>
-<script>
-  document.getElementById("backButton").addEventListener("click", function() {
-      window.history.back();
-  });
-</script>
+      applyPromoBtn.addEventListener("click", () => {
+        const promoCode = promoCodeInput.value.trim();
+        if (promoCode === "SAVE10") {
+          const totalPriceElement = document.querySelector(".total-price");
+          let totalPrice = parseFloat(
+            totalPriceElement.textContent.replace("$", "")
+          );
+          totalPrice -= 10;
+          totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+          alert("Promo code applied successfully!");
+        } else {
+          alert("Invalid promo code.");
+        }
+      });
+    </script>
+    <script>
+      document
+        .getElementById("backButton")
+        .addEventListener("click", function () {
+          window.history.back();
+        });
+    </script>
     <script src="script.js"></script>
   </body>
-
 </html>
