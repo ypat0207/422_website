@@ -453,12 +453,9 @@ footer ul li a {
   .mobile-menu-item {
     display: block !important;
   }
-  /* Hide menu by default */
   .menu.hidden {
     display: none;
   }
-
-  /* Style for the dropdown menu */
   .menu {
     background-image: url(images/luxa.org-opacity-changed-background.png);
     position: fixed;
@@ -472,8 +469,8 @@ footer ul li a {
     padding: 20px;
     padding-right: 60px;
     list-style-type: none;
-    z-index: 999; /* Ensure it's above other content */
-    overflow-y: auto; /* Enable scrolling if menu is too long */
+    z-index: 999;
+    overflow-y: auto; 
   }
 
   .menu li {
@@ -486,14 +483,13 @@ footer ul li a {
     font-size: 18px;
   }
 
-  /* Style for the hamburger menu toggle */
   .menu-toggle {
     cursor: pointer;
     display: block;
     position: fixed;
     top: 30px;
     right: 10px;
-    z-index: 1000; /* Ensure it's above the menu */
+    z-index: 1000; 
     margin-right: 20px;
     margin-top: 5 px;
   }
@@ -582,7 +578,7 @@ footer ul li a {
   .backbutton {
     margin-left: 10px;
   }
-  /* Pagination Dots */
+
   .carousel-dots {
     display: flex;
     justify-content: center;
@@ -616,7 +612,7 @@ footer ul li a {
     color: #fff;
   }
 
-  /* Switch styles */
+
   .switch {
     position: absolute;
     display: inline-block;

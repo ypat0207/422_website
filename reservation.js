@@ -35,28 +35,24 @@ let selectedTime = null;
 
 function selectDate(dateBox) {
   const dateNumber = dateBox.id.split("-")[2];
-  // Reset previously selected date box
   if (selectedDate !== null) {
     document
       .getElementById(`date-box-${selectedDate}`)
       .classList.remove("selected");
   }
 
-  // Select the clicked date box
   dateBox.classList.add("selected");
   selectedDate = dateNumber;
 }
 
 function selectTime(timeBox) {
   const timeNumber = timeBox.id.split("-")[2];
-  // Reset previously selected time box
   if (selectedTime !== null) {
     document
       .getElementById(`time-box-${selectedTime}`)
       .classList.remove("selected");
   }
 
-  // Select the clicked time box
   timeBox.classList.add("selected");
   selectedTime = timeNumber;
 }
@@ -71,9 +67,7 @@ function updateButtonState() {
 }
 
 function confirmReservation() {
-  // Check if both date and time are selected
   if (selectedDate !== null && selectedTime !== null) {
-    // Display reservation information
     displayReservationInfo();
   } else {
     alert("Please select a date and time before confirming.");
@@ -81,7 +75,6 @@ function confirmReservation() {
 }
 
 function displayReservationInfo() {
-  // Remove original items and show reservation info
   const reservationContainer = document.getElementById("reservation-container");
   reservationContainer.style.display = "none";
 
@@ -100,18 +93,16 @@ function displayReservationInfo() {
 }
 
 function changeReservation() {
-  // get back to original page
+
   const reservationContainer = document.getElementById("reservation-container");
   reservationContainer.style.display = "flex";
 
   const reservationInfo = document.getElementById("reservation-info");
   reservationInfo.innerHTML = "";
 
-  // Reset selected date and time
   selectedDate = null;
   selectedTime = null;
 
-  // Remove selected state from date and time boxes
   document.querySelectorAll(".date-box.selected").forEach((dateBox) => {
     dateBox.classList.remove("selected");
   });
@@ -120,18 +111,15 @@ function changeReservation() {
     timeBox.classList.remove("selected");
   });
 
-  // Reset confirm button color
   const confirmButton = document.querySelector(".confirm-button");
   confirmButton.style.backgroundColor = "lightgrey";
 }
 
 function getDate(dateNumber) {
-  // Function to return actual date based on the selected date number
   return dateBoxes[dateNumber - 1].textContent;
 }
 
 function getTime(timeNumber) {
-  // Function to return actual time based on the selected time number
   const times = [
     "11:00 AM - 12:00 PM",
     "12:00 PM - 01:00 PM",

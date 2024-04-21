@@ -14,8 +14,8 @@ submitBtns.forEach((submitBtn, index) => {
 
 stars.forEach((star, index) => {
   star.addEventListener("click", () => {
-    const itemIndex = Math.floor(index / 5); // Determine the item index based on the star index
-    const value = (index % 5) + 1; // Determine the rating value based on the star index
+    const itemIndex = Math.floor(index / 5);
+    const value = (index % 5) + 1; 
     resetStars(itemIndex);
     for (let i = itemIndex * 5; i < itemIndex * 5 + value; i++) {
       stars[i].classList.add("active");

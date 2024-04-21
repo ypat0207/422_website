@@ -135,7 +135,7 @@
       </div>
     </footer>
     <script type="module">
-      // Import necessary Firebase modules
+
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
       import {
@@ -146,7 +146,6 @@
         doc,
       } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
-      // Your Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyAe8YMj8gHoIBbarYoHo3EaSJ27ADN1gAQ",
         authDomain: "cs422actual.firebaseapp.com",
@@ -157,38 +156,32 @@
         measurementId: "G-Y5RWRMPES1",
       };
 
-      // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
       const db = getFirestore(app);
 
       document.addEventListener("DOMContentLoaded", async function () {
         try {
-          // Get the 'cart' collection from Firestore
           const querySnapshot = await getDocs(collection(db, "cart"));
           let totalPrice = 0; 
           let itemCount = 0;
           querySnapshot.forEach((doc) => {
-      itemCount++; // Increment item count for each item
+      itemCount++; 
         });
 
-        // Calculate total price based on the number of items
-        totalPrice = itemCount * 10; // Assuming each item costs $10
+        totalPrice = itemCount * 10; 
 
-        // Display total price dynamically in the HTML
         document.querySelector('.total-price').textContent = `$${totalPrice.toFixed(2)}`;
         if (itemCount > 0) {
-      // If there are items, set the footer's position to relative
           document.querySelector('.footerClass').style.position = 'relative';
         } else {
-          // If there are no items, set the footer's position to its default position
           document.querySelector('.footerClass').style.position = 'fixed';
         }
           querySnapshot.forEach((doc) => {
             const itemPic = doc.data().image
             const itemName = doc.data().item;
-            const itemPrice = "$10.00"; // Replace with actual price from Firestore if available
-            const itemId = doc.id; // Get the document ID
+            const itemPrice = "$10.00"; 
+            const itemId = doc.id; 
             const itemDiv = createCartItemDiv(itemName, itemPrice, itemId, itemPic);
             document.getElementById("cart-container").appendChild(itemDiv);
             const quantityDropdown = itemDiv.querySelector(".quantity-dropdown");
@@ -201,9 +194,6 @@
       });
 
 
-
-    
-      // Function to create HTML structure for each cart item
       function createCartItemDiv(itemName, itemPrice, itemId, itemPic) {
   const containerDiv = document.createElement("div");
   containerDiv.classList.add("container");
@@ -228,18 +218,14 @@
   const itemDiv = document.createElement("div");
   itemDiv.classList.add("item");
 
-  // Create and configure the image element
   const imgElement = document.createElement("img");
   imgElement.src = itemPic;
-  imgElement.alt = itemName; // Set alt attribute for accessibility
+  imgElement.alt = itemName;
   imgElement.classList.add("item-image");
   imgElement.style.width = "120px";
 imgElement.style.height = "80px";
 
-  // Append the image to the itemDiv
   itemDiv.appendChild(imgElement);
-
-  // Create a span element for the item name
   const itemNameSpan = document.createElement("span");
   itemNameSpan.textContent = itemName;
   itemNameSpan.style.position = "absolute";
@@ -301,8 +287,6 @@ imgElement.style.height = "80px";
   boldSpan.classList.add("font-weight-bold");
   boldSpan.textContent = itemPrice;
   priceDiv.appendChild(boldSpan);
-
-  // Append all elements to their respective parent elements
   containerDiv.appendChild(borderDiv);
   borderDiv.appendChild(rowDiv);
   rowDiv.appendChild(col1Div);
@@ -321,7 +305,6 @@ imgElement.style.height = "80px";
     const submitBtn = document.querySelector('.submit-btn');
 
     submitBtn.addEventListener('click', async () => {
-      // Create a confirmation popup
       const confirmation = confirm("Your order has been submitted. Thank you!");
 
       await deleteDoc(doc(db, "cart", itemId));
@@ -334,11 +317,9 @@ imgElement.style.height = "80px";
 const promoCodeInput = document.getElementById('promoCodeInput');
 const applyPromoBtn = document.getElementById('applyPromobtn');
 
-// Add an event listener to the apply button
 applyPromoBtn.addEventListener('click', () => {
   const promoCode = promoCodeInput.value.trim();
   if (promoCode === 'SAVE10') {
-    // Update the total price with the $10 discount
     const totalPriceElement = document.querySelector('.total-price');
     let totalPrice = parseFloat(totalPriceElement.textContent.replace('$', ''));
     totalPrice -= 10;

@@ -35,8 +35,3 @@ button.addEventListener("click", function () {
   alert("Pressed");
 });
 
-//   .getElementById("add-to-cart-btn")
-//   .addEventListener("click", function () {
-//     console.log("Add to cart button clicked.");
-//     addToCart("Item 1 Name", "Item 1 Price");
-//   });
