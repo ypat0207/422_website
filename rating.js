@@ -1,6 +1,17 @@
 const stars = document.querySelectorAll(".star");
 const submitBtns = document.querySelectorAll(".submitBtn");
 
+submitBtns.forEach((submitBtn, index) => {
+  submitBtn.addEventListener("click", () => {
+    const starsContainer = submitBtn.parentNode.previousElementSibling;
+    const starsInContainer = starsContainer.querySelectorAll(".star");
+    alert("Thanks for the review!");
+    starsInContainer.forEach((star) => {
+      star.classList.remove("active");
+    });
+  });
+});
+
 stars.forEach((star, index) => {
   star.addEventListener("click", () => {
     const itemIndex = Math.floor(index / 5); // Determine the item index based on the star index
@@ -18,12 +29,3 @@ function resetStars(itemIndex) {
     stars[i].classList.remove("active");
   }
 }
-
-submitBtns.forEach((submitBtn) => {
-  submitBtn.addEventListener("click", () => {
-    alert("Thanks for the review!");
-    stars.forEach((star) => {
-      star.classList.remove("active");
-    });
-  });
-});
