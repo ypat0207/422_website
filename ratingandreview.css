@@ -138,10 +138,10 @@ header {
   .buttonDiv {
     padding-bottom: 10px;
   }
-  .dark-mode #submitBtn {
+  .dark-mode .submitBtn {
     background-color: rgb(82, 82, 82);
   }
-  #submitBtn {
+  .submitBtn {
     background-color: #41373b;
     border-radius: 8px;
     border-style: none;
