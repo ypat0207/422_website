@@ -1,210 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rating and Review</title>
-    <link rel="stylesheet" href="ratingandreview.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="ratingandreview.css" />
+  </head>
+  <body>
     <header class="mobileheader">
-        <div class="logo-container">
-          <a href="index.html"
-            ><img class="logoimg" src="images/logo.jpeg" alt=""
-          /></a>
+      <div class="logo-container">
+        <a href="index.html"
+          ><img class="logoimg" src="images/logo.jpeg" alt=""
+        /></a>
+      </div>
+      <nav class="nav">
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-        <nav class="nav">
-          <div class="menu-toggle" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <a href="cart.html" class="shopping-cart-icon">
-            <img src="images/cart.png" alt="Shopping Cart" />
-          </a>
-          
-          <ul id="menu" class="hidden menu">
-            <div class="menuOuter">
+        <a href="cart.html" class="shopping-cart-icon">
+          <img src="images/cart.png" alt="Shopping Cart" />
+        </a>
+
+        <ul id="menu" class="hidden menu">
+          <div class="menuOuter">
             <div class="menuoption1">
-            <li><a class="buttons" href="index.html">Home</a></li>
+              <li><a class="buttons" href="index.html">Home</a></li>
             </div>
             <div class="menuoption">
-            <li><a class="buttons" href="menu.html">Menu</a></li>
+              <li><a class="buttons" href="menu.html">Menu</a></li>
             </div>
             <div class="menuoption1">
-            <li><a class="buttons" href="#">Specials</a></li>
+              <li><a class="buttons" href="#">Specials</a></li>
             </div>
             <div class="menuoption">
-            <li><a class="buttons" href="reservation.html">Reserve Now</a></li>
+              <li>
+                <a class="buttons" href="reservation.html">Reserve Now</a>
+              </li>
             </div>
             <div class="darkModeContainer menuoption1">
-            <li><a class="buttons" href="#">Dark mode</a></li>
-            <li>
-              <label class="switch">
-                <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()" />
-                <span class="slider round"></span>
-              </label>
-            </li>
-  
+              <li><a class="buttons" href="#">Dark mode</a></li>
+              <li>
+                <label class="switch">
+                  <input
+                    type="checkbox"
+                    id="darkModeSwitch"
+                    onclick="toggleDarkMode()"
+                  />
+                  <span class="slider round"></span>
+                </label>
+              </li>
+            </div>
+            <div class="menuoption">
+              <li><a class="buttons" href="Login.html">Log In</a></li>
+            </div>
+            <div class="menuoption1">
+              <li><a class="buttons" href="Login.html">Sign Up</a></li>
+            </div>
+            <div class="menuoption">
+              <li><a class="buttons" href="#">Contact Us</a></li>
+            </div>
+            <div class="menuoption1">
+              <li><a class="buttons" href="#">About Us</a></li>
+            </div>
+            <div class="ratingReview">
+              <li>
+                <a class="buttons" href="ratingandreview.html"
+                  >Rating & Review</a
+                >
+              </li>
+            </div>
           </div>
-          <div class="menuoption">
-            <li><a class="buttons" href="Login.html">Log In</a></li>
-          </div>
-          <div class="menuoption1">
-            <li><a class="buttons" href="Login.html">Sign Up</a></li>
-          </div>
-          <div class="menuoption">
-            <li><a class="buttons" href="#">Contact Us</a></li>
-          </div>
-          <div class="menuoption1">
-            <li><a class="buttons" href="#">About Us</a></li>
-          </div>
-          <div class="ratingReview">
-            <li><a class="buttons" href="ratingandreview.html">Rating & Review</a></li>
-          </div>
-        
+        </ul>
+      </nav>
+    </header>
+    <div class="menuDiv">
+      <label class="MenuText">Rating & Review</label>
+    </div>
+    <div class="outerdiv">
+      <div class="container">
+        <div class="item">
+          <img src="images/item1.jpeg" alt="Item Picture" />
         </div>
-  
-          </ul>
-          
-        </nav>
-      </header>
-      <div class ="menuDiv">
-        <label class ="MenuText">Rating & Review</label>
+        <div class="details">
+          <h2>Hungry Head</h2>
+          <div class="rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+          <div class="buttonDiv">
+            <button id="submitBtn">Submit Review</button>
+          </div>
+        </div>
       </div>
-    <div class="outerdiv"> 
-    <div class="container">
+      <div class="container">
         <div class="item">
-            <img src="images/item1.jpeg" alt="Item Picture">
+          <img src="images/item2.jpeg" alt="Item Picture" />
         </div>
         <div class="details">
-            <h2>Hungry Head</h2>
-            <div class="rating">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-            </div>
+          <h2>Imperial Gourmet</h2>
+          <div class="rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+          <div class="buttonDiv">
             <button id="submitBtn">Submit Review</button>
+          </div>
         </div>
-    </div>
-    <div class="container">
+      </div>
+      <div class="container">
         <div class="item">
-            <img src="images/item2.jpeg" alt="Item Picture">
+          <img src="images/item3.jpeg" alt="Item Picture" />
         </div>
         <div class="details">
-            <h2>Imperial Gourmet</h2>
-            <div class="rating">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-            </div>
+          <h2>Fiesty Fork</h2>
+          <div class="rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+          <div class="buttonDiv">
             <button id="submitBtn">Submit Review</button>
+          </div>
         </div>
-    </div>
-    <div class="container">
+      </div>
+      <div class="container">
         <div class="item">
-            <img src="images/item3.jpeg" alt="Item Picture">
+          <img src="images/item4.jpeg" alt="Item Picture" />
         </div>
         <div class="details">
-            <h2>Fiesty Fork</h2>
-            <div class="rating">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-            </div>
+          <h2>Verve Diner</h2>
+          <div class="rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+          <div class="buttonDiv">
             <button id="submitBtn">Submit Review</button>
+          </div>
         </div>
-    </div>
-    <div class="container">
+      </div>
+      <div class="container">
         <div class="item">
-            <img src="images/item4.jpeg" alt="Item Picture">
+          <img src="images/item5.jpeg" alt="Item Picture" />
         </div>
         <div class="details">
-            <h2>Verve Diner</h2>
-            <div class="rating">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-            </div>
+          <h2>King Ming</h2>
+          <div class="rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+          <div class="buttonDiv">
             <button id="submitBtn">Submit Review</button>
+          </div>
         </div>
-    </div>
-    <div class="container">
+      </div>
+      <div class="container">
         <div class="item">
-            <img src="images/item5.jpeg" alt="Item Picture">
+          <img src="images/item6.jpeg" alt="Item Picture" />
         </div>
         <div class="details">
-            <h2>King Ming</h2>
-            <div class="rating">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-            </div>
+          <h2>Spicy Harvest Noodles</h2>
+          <div class="rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+          <div class="buttonDiv">
             <button id="submitBtn">Submit Review</button>
+          </div>
         </div>
-    </div>
-    <div class="container">
+      </div>
+      <div class="container">
         <div class="item">
-            <img src="images/item6.jpeg" alt="Item Picture">
+          <img src="images/item7.jpeg" alt="Item Picture" />
         </div>
         <div class="details">
-            <h2>Spicy Harvest Noodles</h2>
-            <div class="rating">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-            </div>
+          <h2>Samosa</h2>
+          <div class="rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+          <div class="buttonDiv">
             <button id="submitBtn">Submit Review</button>
+          </div>
         </div>
-    </div>
-    <div class="container">
+      </div>
+      <div class="container">
         <div class="item">
-            <img src="images/item7.jpeg" alt="Item Picture">
+          <img src="images/item8.jpeg" alt="Item Picture" />
         </div>
         <div class="details">
-            <h2>Samosa</h2>
-            <div class="rating">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-            </div>
+          <h2>Atomic Pav Bhaji</h2>
+          <div class="rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+          <div class="buttonDiv">
             <button id="submitBtn">Submit Review</button>
+          </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="item">
-            <img src="images/item8.jpeg" alt="Item Picture">
-        </div>
-        <div class="details">
-            <h2>Atomic Pav Bhaji</h2>
-            <div class="rating">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-            </div>
-            <button id="submitBtn">Submit Review</button>
-        </div>
-    </div>
-
+      </div>
     </div>
     <script src="rating.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
