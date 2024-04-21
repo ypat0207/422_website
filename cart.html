@@ -325,6 +325,9 @@
       applyPromoBtn.addEventListener("click", () => {
         const promoCode = promoCodeInput.value.trim();
         if (promoCode === "SAVE10") {
+          if(totalPrice === 0) {
+            totalPrice === 0;
+          }
           const totalPriceElement = document.querySelector(".total-price");
           let totalPrice = parseFloat(
             totalPriceElement.textContent.replace("$", "")
