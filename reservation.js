@@ -93,7 +93,6 @@ function displayReservationInfo() {
 }
 
 function changeReservation() {
-
   const reservationContainer = document.getElementById("reservation-container");
   reservationContainer.style.display = "flex";
 
@@ -121,10 +120,10 @@ function getDate(dateNumber) {
 
 function getTime(timeNumber) {
   const times = [
-    "11:00 AM - 12:00 PM",
-    "12:00 PM - 01:00 PM",
-    "01:00 PM - 02:00 PM",
-    "02:00 PM - 03:00 PM",
+    "11:00 AM - 11:25 PM",
+    "11:35 PM - 12:00 PM",
+    "12:00 PM - 12:25 PM",
+    "12:35 PM - 01:00 PM",
   ];
   return times[timeNumber - 1];
 }
