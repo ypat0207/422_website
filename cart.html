@@ -148,6 +148,7 @@
         getDocs,
         deleteDoc,
         doc,
+        updateDoc,
       } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
       const firebaseConfig = {
@@ -171,9 +172,9 @@
           let itemCount = 0;
           querySnapshot.forEach((doc) => {
             itemCount++;
+            const quantity = doc.data().quantity || 1; // Use 1 as default quantity if not stored
+            totalPrice += quantity * 10;
           });
-
-          totalPrice = itemCount * 10;
 
           document.querySelector(
             ".total-price"
@@ -188,15 +189,17 @@
             const itemName = doc.data().item;
             const itemPrice = "$10.00";
             const itemId = doc.id;
+            const quantity = doc.data().quantity || 1; // Use 1 as default quantity if not stored
             const itemDiv = createCartItemDiv(
               itemName,
               itemPrice,
               itemId,
-              itemPic
+              itemPic,
+              quantity
             );
             document.getElementById("cart-container").appendChild(itemDiv);
-            const quantityDropdown =
-              itemDiv.querySelector(".quantity-dropdown");
+            // const quantityDropdown =
+            //   itemDiv.querySelector(".quantity-dropdown");
           });
         } catch (error) {
           console.error("Error getting documents: ", error);
@@ -215,7 +218,13 @@
         });
       });
 
-      function createCartItemDiv(itemName, itemPrice, itemId, itemPic) {
+      function createCartItemDiv(
+        itemName,
+        itemPrice,
+        itemId,
+        itemPic,
+        quantity = 1
+      ) {
         const containerDiv = document.createElement("div");
         containerDiv.classList.add("container");
 
@@ -271,11 +280,11 @@
             await deleteDoc(doc(db, "cart", itemId));
             containerDiv.remove();
             const totalPriceElement = document.querySelector(".total-price");
-          let totalPrice = parseFloat(
-            totalPriceElement.textContent.replace("$", "")
-          ); 
-          totalPrice -= 10;
-          totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+            let totalPrice = parseFloat(
+              totalPriceElement.textContent.replace("$", "")
+            );
+            totalPrice -= 10;
+            totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
           } catch (error) {
             console.error("Error deleting document: ", error);
           }
@@ -292,13 +301,36 @@
         quantityLabel.textContent = "Quantity:";
 
         const quantityDropdown = document.createElement("select");
-        quantityDropdown.classList.add("form-control");
+        quantityDropdown.classList.add("form-control", "quantity-dropdown");
         quantityDropdown.id = "quantityDropdown";
-        const quantityOptions = [1, 2, 3];
+        const quantityOptions = [1, 2, 3, 4];
         quantityOptions.forEach((option) => {
           const optionElement = document.createElement("option");
           optionElement.textContent = option;
+          optionElement.value = option;
           quantityDropdown.appendChild(optionElement);
+        });
+        quantityDropdown.value = quantity;
+        quantityDropdown.addEventListener("change", async () => {
+          const selectedQuantity = parseInt(quantityDropdown.value);
+          const priceElement = containerDiv.querySelector(".price span");
+          const currentPrice = parseFloat(
+            priceElement.textContent.replace("$", "")
+          );
+          const totalPriceElement = document.querySelector(".total-price");
+          let totalPrice = parseFloat(
+            totalPriceElement.textContent.replace("$", "")
+          );
+          totalPrice = totalPrice - currentPrice + selectedQuantity * 10;
+          try {
+            await updateDoc(doc(db, "cart", itemId), {
+              quantity: selectedQuantity,
+            });
+            priceElement.textContent = `$${(selectedQuantity * 10).toFixed(2)}`;
+            totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+          } catch (error) {
+            console.error("Error updating document: ", error);
+          }
         });
 
         const col3Div = document.createElement("div");
@@ -309,7 +341,7 @@
         priceDiv.textContent = "Price: ";
         const boldSpan = document.createElement("span");
         boldSpan.classList.add("font-weight-bold");
-        boldSpan.textContent = itemPrice;
+        boldSpan.textContent = `$${(quantity * 10).toFixed(2)}`;
         priceDiv.appendChild(boldSpan);
         containerDiv.appendChild(borderDiv);
         borderDiv.appendChild(rowDiv);
@@ -358,6 +390,7 @@
           window.history.back();
         });
     </script>
+    <script></script>
     <script src="script.js"></script>
   </body>
 </html>
