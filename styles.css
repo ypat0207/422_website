@@ -941,4 +941,10 @@ input:checked + .slider:before {
 .dark-mode .login-container {
   border: 2px solid white;
 }
+.shopping-cart-icon {
+  margin-left: 90px;
+  position: absolute;
+  right: 75px;
+  top: 30px;
+}
 }
