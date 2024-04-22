@@ -110,6 +110,7 @@
       </div>
       <div class="buttonClass">
         <button
+          id="facebookBtn"
           style="
             background-color: #3b5998;
             color: white;
@@ -127,6 +128,7 @@
           <span style="position: relative; top: -2px">Facebook</span>
         </button>
         <button
+          id="twitterBtn"
           style="
             background-color: #00acee;
             color: white;
@@ -143,6 +145,7 @@
           <span style="position: relative; top: -4px">Twitter</span>
         </button>
         <button
+          id="googleBtn"
           style="
             background-color: #db4437;
             color: white;
@@ -170,8 +173,27 @@
   </body>
   <script src="script.js"></script>
   <script>
-    document.getElementById("backButton").addEventListener("click", function() {
+    document
+      .getElementById("backButton")
+      .addEventListener("click", function () {
         window.history.back();
+      });
+  </script>
+  <script>
+    document
+      .getElementById("facebookBtn")
+      .addEventListener("click", function () {
+        window.open("https://www.facebook.com/login.php", "_blank");
+      });
+
+    document
+      .getElementById("twitterBtn")
+      .addEventListener("click", function () {
+        window.open("https://twitter.com/login", "_blank");
+      });
+
+    document.getElementById("googleBtn").addEventListener("click", function () {
+      window.open("https://accounts.google.com", "_blank");
     });
   </script>
 </html>
